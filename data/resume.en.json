@@ -1,0 +1,302 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "Charles Delepelaire",
+    "label": "Junior IT Support & Operations Technician",
+    "email": "charles-web@hotmail.fr",
+    "phone": "+33 7 59 69 49 74",
+    "url": "https://grosfaignan.github.io/CV/en/",
+    "summary": "Moving into IT support and operations, with Linux system administration as my long-term goal. Self-taught configuration, automation and maintenance of Linux and Windows systems, GitHub Actions CI/CD workflows, virtualisation (KVM, Docker). Several years of B2B sales experience, along with practice in document analysis and technology and competitive intelligence. Looking for a first role in IT support and operations, or as a junior Linux administrator.",
+    "location": {
+      "city": "Paris",
+      "region": "Île-de-France",
+      "countryCode": "FR"
+    },
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "grosfaignan",
+        "url": "https://github.com/grosfaignan"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Personal projects",
+      "position": "Self-taught IT",
+      "startDate": "2018",
+      "summary": "Self-taught programming, web development and Linux system administration.",
+      "highlights": []
+    },
+    {
+      "name": "Unpaid, self-taught",
+      "position": "Computer-aided design (CAD)",
+      "startDate": "2015-08",
+      "endDate": "2018",
+      "highlights": [
+        "CAD software: Autodesk Fusion 360, Autodesk Inventor, SolidWorks",
+        "Printed circuit board design: Eagle CAD, Altium Designer"
+      ]
+    },
+    {
+      "name": "Various assignments",
+      "position": "Temporary work (including forklift operator)",
+      "startDate": "2009-02",
+      "endDate": "2015-08",
+      "highlights": [
+        "Temporary assignments in logistics and warehousing"
+      ]
+    },
+    {
+      "name": "Hertz",
+      "position": "B2B sales representative",
+      "location": "Trappes (Paris area)",
+      "startDate": "2008-05",
+      "endDate": "2008-11",
+      "highlights": [
+        "Portfolio of more than 1,000 B2B clients worth €1M in revenue: prospecting, contract negotiation, account management"
+      ]
+    },
+    {
+      "name": "Teleperformance (Aviva Direct)",
+      "position": "Customer advisor",
+      "location": "Guyancourt (Paris area)",
+      "startDate": "2007-03",
+      "endDate": "2008-03",
+      "highlights": [
+        "Telephone sales of life and health insurance: around 10 contracts a day",
+        "About 2 months as back-up on the Canal+ team: remote set-top box troubleshooting"
+      ]
+    },
+    {
+      "name": "Construction and civil engineering",
+      "position": "Temporary work",
+      "startDate": "2005-10",
+      "endDate": "2006-12"
+    },
+    {
+      "name": "SARL Delepelaire",
+      "position": "Assistant manager",
+      "location": "Limoges",
+      "startDate": "2003-02",
+      "endDate": "2005-07"
+    },
+    {
+      "name": "SARL Seraba",
+      "position": "Locksmith and metalworker",
+      "location": "Ablis",
+      "startDate": "2000-09",
+      "endDate": "2002-09"
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "1000 Mains et Merveilles",
+      "position": "Volunteer: consulting and market research",
+      "startDate": "2026-08",
+      "highlights": [
+        "Helping build a new B2B offering: data collection (main task), some analysis and communication materials"
+      ]
+    },
+    {
+      "organization": "Emmaüs Connect (digital inclusion charity)",
+      "position": "Volunteer",
+      "startDate": "2026-07",
+      "highlights": [
+        "Selling IT equipment to beneficiaries",
+        "Helping beneficiaries get access to IT equipment",
+        "Taking part in refurbishing IT equipment"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "VPS for agentic research and market intelligence",
+      "startDate": "2026",
+      "description": "Personal project linked to my volunteer work for 1000 Mains et Merveilles (ongoing).",
+      "highlights": [
+        "Technologies under evaluation: Hermes, LangGraph, Claude CLI, Claude API, language model APIs",
+        "Architecture in progress: Docker container automating agentic research for market intelligence",
+        "Intranet server container to format and publish results, with a microservice (PHP / Symfony)",
+        "Possible integration with an existing information system (HubSpot / CRM, inventory)"
+      ]
+    },
+    {
+      "name": "Linux admin workstation and study of hardened systems",
+      "startDate": "2026",
+      "description": "Personal project (ongoing).",
+      "highlights": [
+        "Comparing several systems for an admin workstation (hardened Debian, Ubuntu Pro, Proxmox, secureblue, Qubes OS); Qubes OS and Fedora secureblue are the last two under evaluation",
+        "Scripting in progress: Bash script that collects system information and checks configuration, producing reports on system state; goal: comparing distributions"
+      ]
+    },
+    {
+      "name": "Proxmox hypervisor with GPU passthrough to two development virtual machines",
+      "startDate": "2025",
+      "description": "Personal project, not completed for lack of time (on hold).",
+      "highlights": [
+        "Goal: pass a GPU (RTX 3050) through to two development virtual machines (Windows and Fedora), with a hot GPU reset and hot switching from one virtual machine to the other",
+        "Blocker identified: the GPU’s IOMMU group includes its audio controller, which must be removed for the GPU to reset correctly; not yet solved",
+        "Possible next step, not started: a virtual machine dedicated to sharing out the GPU"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "CNAM (French national school for continuing education)",
+      "area": "Networking, IT security and mathematics (UTC505, MVA911)",
+      "studyType": "Continuing education",
+      "startDate": "2026"
+    },
+    {
+      "institution": "CNAM Paris",
+      "area": "B2B marketing",
+      "studyType": "Specialist certificate",
+      "startDate": "2008-09",
+      "endDate": "2010-06"
+    },
+    {
+      "institution": "CNAM Paris",
+      "area": "Strategic and competitive intelligence",
+      "studyType": "Course",
+      "startDate": "2008-09",
+      "endDate": "2009-02",
+      "courses": [
+        "Consulting assignment for Rencontres et Communications (Paris): competitive study of the corporate event communication market"
+      ]
+    },
+    {
+      "institution": "CNAM Paris",
+      "area": "Operational management",
+      "studyType": "Certificate",
+      "startDate": "2007-02",
+      "endDate": "2009-06"
+    },
+    {
+      "institution": "Compagnons du Devoir apprentice school, Paris",
+      "area": "Locksmithing and metalwork",
+      "studyType": "Vocational diploma (BEP)",
+      "startDate": "2000-09",
+      "endDate": "2002-09"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Operating systems",
+      "keywords": [
+        "Debian (hands-on)",
+        "Ubuntu (hands-on)",
+        "Fedora (hands-on)",
+        "Windows 10 (hands-on)",
+        "Windows 11 (hands-on)",
+        "Proxmox (beginner)",
+        "Qubes OS (beginner)",
+        "OpenBSD (basic)"
+      ]
+    },
+    {
+      "name": "Virtualisation and containers",
+      "keywords": [
+        "Docker (beginner)",
+        "KVM (beginner)",
+        "Hyper-V (basic)"
+      ]
+    },
+    {
+      "name": "Networking",
+      "keywords": [
+        "TCP/IP (basic)",
+        "DNS (basic)",
+        "DHCP (basic)",
+        "VPN (basic)"
+      ]
+    },
+    {
+      "name": "Automation",
+      "keywords": [
+        "Bash (hands-on)",
+        "Git (hands-on)",
+        "GitHub (hands-on)",
+        "GitHub Actions (hands-on)",
+        "Ansible (beginner)",
+        "Terraform / OpenTofu (basic)"
+      ]
+    },
+    {
+      "name": "Monitoring",
+      "keywords": [
+        "Grafana (basic)",
+        "Prometheus (basic)",
+        "Loki (basic)"
+      ]
+    },
+    {
+      "name": "Development",
+      "keywords": [
+        "C# (hands-on)",
+        "HTML / CSS (hands-on)",
+        "Python (beginner)",
+        "JavaScript / Node.js (beginner)",
+        "PHP / Symfony (beginner)",
+        "WordPress, until 2022 (beginner)",
+        "C, C++, Win32 API, older basics (basic)"
+      ]
+    },
+    {
+      "name": "Documentation",
+      "keywords": [
+        "Markdown (hands-on)",
+        "AsciiDoc (hands-on)",
+        "Word (hands-on)",
+        "PowerPoint (hands-on)",
+        "JupyterLab (basic)"
+      ]
+    },
+    {
+      "name": "Security",
+      "keywords": [
+        "Cloudflare",
+        "AppArmor",
+        "auditd",
+        "Fail2Ban",
+        "SELinux",
+        "split-GPG",
+        "split-SSH",
+        "qrexec",
+        "Qubes policies (basic)"
+      ]
+    },
+    {
+      "name": "CAD and electronics",
+      "keywords": [
+        "Autodesk Fusion 360 (good to very good)",
+        "Autodesk Inventor",
+        "SolidWorks",
+        "Eagle CAD (beginner)",
+        "Altium Designer (beginner)"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "French",
+      "fluency": "Native"
+    },
+    {
+      "language": "English",
+      "fluency": "Written, reading technical documentation"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Guitar"
+    },
+    {
+      "name": "Travel"
+    }
+  ],
+  "meta": {
+    "language": "en",
+    "canonical": "https://grosfaignan.github.io/CV/en/"
+  }
+}

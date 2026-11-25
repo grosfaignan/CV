@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Delepelaire;Charles;;;
+FN:Charles Delepelaire
+TITLE:Technicien support et exploitation informatique junior
+TEL;TYPE=CELL:+33759694974
+EMAIL;TYPE=INTERNET:charles-web@hotmail.fr
+URL:https://grosfaignan.github.io/CV/
+X-SOCIALPROFILE;TYPE=github:https://github.com/grosfaignan
+ADR;TYPE=HOME:;;;Paris;Île-de-France;;France
+NOTE:CV en ligne : https://grosfaignan.github.io/CV/
+END:VCARD

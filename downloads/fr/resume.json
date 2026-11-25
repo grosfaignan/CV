@@ -1,0 +1,302 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "Charles Delepelaire",
+    "label": "Technicien support et exploitation informatique junior",
+    "email": "charles-web@hotmail.fr",
+    "phone": "+33 7 59 69 49 74",
+    "url": "https://grosfaignan.github.io/CV/",
+    "summary": "En reconversion vers le support et l’exploitation informatique, avec l’administration de systèmes Linux pour horizon. Configuration, automatisation et maintenance autodidactes de systèmes Linux et Windows, workflows GitHub Actions de CI/CD, virtualisation (KVM, Docker). Plusieurs années d’expérience commerciale B2B, complétées par une pratique de l’analyse documentaire et de la veille technologique et concurrentielle. Recherche une première expérience en support et exploitation informatique, ou en administration Linux junior.",
+    "location": {
+      "city": "Paris",
+      "region": "Île-de-France",
+      "countryCode": "FR"
+    },
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "grosfaignan",
+        "url": "https://github.com/grosfaignan"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Projets personnels",
+      "position": "Autoformation en informatique",
+      "startDate": "2018",
+      "summary": "Apprentissage autodidacte de la programmation, du développement web et de l’administration de systèmes Linux.",
+      "highlights": []
+    },
+    {
+      "name": "Non salarié, autodidacte",
+      "position": "Conception assistée par ordinateur (CAO / DAO)",
+      "startDate": "2015-08",
+      "endDate": "2018",
+      "highlights": [
+        "Logiciels de CAO : Autodesk Fusion 360, Autodesk Inventor, SolidWorks",
+        "Conception de circuits imprimés : Eagle CAD, Altium Designer"
+      ]
+    },
+    {
+      "name": "Missions diverses",
+      "position": "Intérim (dont cariste)",
+      "startDate": "2009-02",
+      "endDate": "2015-08",
+      "highlights": [
+        "Missions d’intérim en logistique et manutention"
+      ]
+    },
+    {
+      "name": "Hertz",
+      "position": "Commercial entreprises",
+      "location": "Trappes (78)",
+      "startDate": "2008-05",
+      "endDate": "2008-11",
+      "highlights": [
+        "Portefeuille de plus de 1 000 clients B2B pour 1 M€ de chiffre d’affaires : prospection, négociation de contrats, administration du portefeuille"
+      ]
+    },
+    {
+      "name": "Teleperformance (Aviva Direct)",
+      "position": "Chargé de clientèle",
+      "location": "Guyancourt (78)",
+      "startDate": "2007-03",
+      "endDate": "2008-03",
+      "highlights": [
+        "Vente téléphonique d’assurances vie et santé : environ 10 contrats par jour",
+        "Renfort ponctuel d’environ 2 mois sur le plateau Canal+ : dépannage de box à distance"
+      ]
+    },
+    {
+      "name": "Bâtiment et travaux publics (BTP)",
+      "position": "Intérim",
+      "startDate": "2005-10",
+      "endDate": "2006-12"
+    },
+    {
+      "name": "SARL Delepelaire",
+      "position": "Adjoint de direction",
+      "location": "Limoges (87)",
+      "startDate": "2003-02",
+      "endDate": "2005-07"
+    },
+    {
+      "name": "SARL Seraba",
+      "position": "Serrurier-métallier",
+      "location": "Ablis (78)",
+      "startDate": "2000-09",
+      "endDate": "2002-09"
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "1000 Mains et Merveilles",
+      "position": "Bénévole : conseil et études de marché",
+      "startDate": "2026-08",
+      "highlights": [
+        "Participation à l’élaboration d’une nouvelle offre destinée au marché B2B : collecte de données (mission principale), quelques analyses et documents de communication"
+      ]
+    },
+    {
+      "organization": "Emmaüs Connect",
+      "position": "Bénévole",
+      "startDate": "2026-07",
+      "highlights": [
+        "Vente de matériel informatique aux bénéficiaires",
+        "Accompagnement des bénéficiaires dans l’accès aux équipements informatiques",
+        "Participation au reconditionnement de matériel informatique"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "VPS de recherche et de veille agentique",
+      "startDate": "2026",
+      "description": "Projet personnel lié à la mission de bénévolat pour 1000 Mains et Merveilles (en cours).",
+      "highlights": [
+        "Technologies en cours d’évaluation : Hermes, LangGraph, Claude CLI, Claude API, API de modèles de langage",
+        "Architecture en cours de construction : conteneur Docker d’automatisation de recherche agentique pour la veille marché",
+        "Conteneur de serveur intranet et de mise en forme des résultats, avec microservice (PHP / Symfony)",
+        "Interfaçage possible avec un système d’information existant (HubSpot / CRM, stock)"
+      ]
+    },
+    {
+      "name": "Poste Linux d’administration et étude de systèmes durcis",
+      "startDate": "2026",
+      "description": "Projet personnel (en cours).",
+      "highlights": [
+        "Comparaison de plusieurs systèmes pour un poste d’administration (Debian durci, Ubuntu Pro, Proxmox, secureblue, Qubes OS) ; Qubes OS et Fedora secureblue sont les deux derniers en cours d’évaluation",
+        "Scripting en cours : script Bash de collecte d’informations système et de diagnostic de configuration, avec rapports documentant l’état du système ; objectif : comparer les distributions"
+      ]
+    },
+    {
+      "name": "Hyperviseur Proxmox avec passthrough GPU vers deux machines virtuelles de développement",
+      "startDate": "2025",
+      "description": "Projet personnel, non abouti faute de temps (interrompu).",
+      "highlights": [
+        "Objectif : passthrough d’un GPU (RTX 3050) vers deux machines virtuelles de développement (Windows et Fedora), avec réinitialisation à chaud du GPU et basculement à chaud d’une machine virtuelle à l’autre",
+        "Blocage identifié : le groupe IOMMU du GPU inclut son contrôleur audio, qu’il faut retirer pour permettre une réinitialisation correcte du GPU ; problème non résolu",
+        "Piste envisagée, non démarrée : machine virtuelle dédiée à la distribution du GPU"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "CNAM",
+      "area": "Réseau, sécurité informatique et mathématiques (UTC505, MVA911)",
+      "studyType": "Reprise de formation",
+      "startDate": "2026"
+    },
+    {
+      "institution": "CNAM Paris",
+      "area": "Marketing B2B",
+      "studyType": "Certificat de spécialité",
+      "startDate": "2008-09",
+      "endDate": "2010-06"
+    },
+    {
+      "institution": "CNAM Paris",
+      "area": "Veille stratégique et concurrentielle",
+      "studyType": "Étude",
+      "startDate": "2008-09",
+      "endDate": "2009-02",
+      "courses": [
+        "Mission pratique de conseil pour Rencontres et Communications (Paris) : étude concurrentielle du marché de la communication événementielle d’entreprise"
+      ]
+    },
+    {
+      "institution": "CNAM Paris",
+      "area": "Management opérationnel",
+      "studyType": "Certificat de compétences",
+      "startDate": "2007-02",
+      "endDate": "2009-06"
+    },
+    {
+      "institution": "CFA des Compagnons du Devoir, Paris",
+      "area": "Serrurier-métallier",
+      "studyType": "BEP",
+      "startDate": "2000-09",
+      "endDate": "2002-09"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Systèmes d’exploitation",
+      "keywords": [
+        "Debian (pratique)",
+        "Ubuntu (pratique)",
+        "Fedora (pratique)",
+        "Windows 10 (pratique)",
+        "Windows 11 (pratique)",
+        "Proxmox (initiation)",
+        "Qubes OS (initiation)",
+        "OpenBSD (notions)"
+      ]
+    },
+    {
+      "name": "Virtualisation et conteneurs",
+      "keywords": [
+        "Docker (initiation)",
+        "KVM (initiation)",
+        "Hyper-V (notions)"
+      ]
+    },
+    {
+      "name": "Réseau",
+      "keywords": [
+        "TCP/IP (notions)",
+        "DNS (notions)",
+        "DHCP (notions)",
+        "VPN (notions)"
+      ]
+    },
+    {
+      "name": "Automatisation",
+      "keywords": [
+        "Bash (pratique)",
+        "Git (pratique)",
+        "GitHub (pratique)",
+        "GitHub Actions (pratique)",
+        "Ansible (initiation)",
+        "Terraform / OpenTofu (notions)"
+      ]
+    },
+    {
+      "name": "Supervision",
+      "keywords": [
+        "Grafana (notions)",
+        "Prometheus (notions)",
+        "Loki (notions)"
+      ]
+    },
+    {
+      "name": "Développement",
+      "keywords": [
+        "C# (pratique)",
+        "HTML / CSS (pratique)",
+        "Python (initiation)",
+        "JavaScript / Node.js (initiation)",
+        "PHP / Symfony (initiation)",
+        "WordPress, jusqu’en 2022 (initiation)",
+        "C, C++, API Win32, bases anciennes (notions)"
+      ]
+    },
+    {
+      "name": "Documentation",
+      "keywords": [
+        "Markdown (pratique)",
+        "AsciiDoc (pratique)",
+        "Word (pratique)",
+        "PowerPoint (pratique)",
+        "JupyterLab (notions)"
+      ]
+    },
+    {
+      "name": "Sécurité",
+      "keywords": [
+        "Cloudflare",
+        "AppArmor",
+        "auditd",
+        "Fail2Ban",
+        "SELinux",
+        "split-GPG",
+        "split-SSH",
+        "qrexec",
+        "politiques Qubes (notions)"
+      ]
+    },
+    {
+      "name": "CAO et électronique",
+      "keywords": [
+        "Autodesk Fusion 360 (bon à très bon niveau)",
+        "Autodesk Inventor",
+        "SolidWorks",
+        "Eagle CAD (initiation)",
+        "Altium Designer (initiation)"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "Français",
+      "fluency": "Langue maternelle"
+    },
+    {
+      "language": "Anglais",
+      "fluency": "Écrit, compréhension de documents techniques"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Guitare"
+    },
+    {
+      "name": "Voyages"
+    }
+  ],
+  "meta": {
+    "language": "fr",
+    "canonical": "https://grosfaignan.github.io/CV/"
+  }
+}
