@@ -270,7 +270,9 @@ h2{font:800 clamp(28px,4.4vw,52px)/1.02 var(--display);letter-spacing:-.035em;ma
 }
 .privacy{margin-top:28px;font-size:12.5px;line-height:1.5;color:rgba(255,255,255,.75);text-align:left}.privacy summary{cursor:pointer;display:inline-block;list-style:none;text-decoration:underline;text-underline-offset:3px}.privacy summary::-webkit-details-marker{display:none}.privacy p{margin-top:8px;max-width:60em;text-align:left}.privacy a{cursor:pointer}
 @media print{.privacy{display:none}}
-.lang{position:absolute;top:clamp(12px,2vw,22px);right:clamp(12px,2vw,22px);z-index:5;display:block;line-height:0}
+.namewrap{position:relative;display:inline-block;max-width:100%;margin-bottom:clamp(28px,4vw,52px)}
+.namewrap h1{margin-bottom:0}
+.lang{position:absolute;top:0;right:0;font-size:clamp(30px,14.2cqw,150px);height:1.02em;display:flex;align-items:center;line-height:0}
 .lang:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
-.lang .flag{width:28px;height:auto;aspect-ratio:3/2;display:block}
+.lang .flag{height:.72em;width:auto;display:block;overflow:hidden}
 @media print{.lang{display:none!important}}
