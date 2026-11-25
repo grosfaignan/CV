@@ -1,11 +1,12 @@
 /* Pile de pochettes : au survol (ou au toucher), une pochette sort de la pile
    puis pivote à plat pour se présenter face à l'écran. Projection isométrique
-   recalculée à chaque image ; sans JavaScript, la pile reste statique. */
+   recalculée à chaque image ; sans JavaScript, la pile reste statique.
+   L'animation n'est déclenchée que par le visiteur (survol / toucher) : elle est
+   jouée même si le système demande de réduire les animations. */
 (function () {
   var svg = document.querySelector('svg.pile');
   if (!svg) return;
   var NS = 'http://www.w3.org/2000/svg';
-  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var canHover = matchMedia('(hover: hover)').matches;
   var OUT = 2.3;            // distance de sortie (unités « monde », 1 = demi-côté)
   var TURN = Math.PI / 4;   // virage à plat : 45° pour faire face à l'écran
@@ -69,7 +70,6 @@
   }
   function go(c, target) {
     c.target = target;
-    if (reduce) { c.p = target; render(c); return; }
     if (!c.raf) { c.last = 0; c.raf = requestAnimationFrame(tick(c)); }
   }
 
