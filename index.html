@@ -6,6 +6,9 @@
 <title>Charles Delepelaire – Technicien support et exploitation informatique junior – Paris</title>
 <meta name="description" content="CV de Charles Delepelaire, technicien support et exploitation informatique junior à Paris : Linux, Windows, automatisation (Bash, GitHub Actions), Docker, KVM.">
 <meta name="author" content="Charles Delepelaire">
+<link rel="alternate" hreflang="fr" href="https://grosfaignan.github.io/CV/">
+<link rel="alternate" hreflang="en" href="https://grosfaignan.github.io/CV/en/">
+<link rel="alternate" hreflang="x-default" href="https://grosfaignan.github.io/CV/">
 <link rel="canonical" href="https://grosfaignan.github.io/CV/">
 <meta name="theme-color" content="#84488C">
 <meta property="og:type" content="profile">
@@ -17,6 +20,7 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Charles Delepelaire, technicien support et exploitation informatique junior">
 <meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_GB">
 <meta property="profile:first_name" content="Charles">
 <meta property="profile:last_name" content="Delepelaire">
 <meta name="twitter:card" content="summary_large_image">
@@ -302,11 +306,23 @@ h2{font:800 clamp(28px,4.4vw,52px)/1.02 var(--display);letter-spacing:-.035em;ma
 }
 .privacy{margin-top:28px;font-size:12.5px;line-height:1.5;color:rgba(255,255,255,.75);text-align:left}.privacy summary{cursor:pointer;display:inline-block;list-style:none;text-decoration:underline;text-underline-offset:3px}.privacy summary::-webkit-details-marker{display:none}.privacy p{margin-top:8px;max-width:60em;text-align:left}.privacy a{cursor:pointer}
 @media print{.privacy{display:none}}
+.lang{position:absolute;top:clamp(12px,2vw,22px);right:clamp(12px,2vw,22px);z-index:5;font:600 14px/1 var(--text)}
+.lang summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:6px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,.14)}
+.lang summary::-webkit-details-marker{display:none}
+.lang summary:hover,.lang[open] summary{background:rgba(255,255,255,.26)}
+.lang summary::after{content:"";width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid #fff}
+.lang summary:focus-visible,.lang a:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.lang .flag{width:28px;height:auto;aspect-ratio:3/2;display:block;border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
+.lang .menu{position:absolute;right:0;top:calc(100% + 6px);background:#fff;border-radius:10px;box-shadow:0 14px 30px -12px rgba(0,0,0,.45);padding:6px;min-width:150px}
+.lang .menu a{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:7px;color:var(--ink);text-decoration:none;white-space:nowrap}
+.lang .menu a:hover{background:var(--band)}
+@media print{.lang{display:none!important}}
 </style>
 </head>
 <body>
 <div class="sheet">
 <header class="hero">
+<details class="lang"><summary aria-label="Langue : français. Changer de langue"><svg class="flag" viewBox="0 0 3 2" aria-hidden="true" focusable="false"><rect width="1" height="2" fill="#002654"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#CE1126"/></svg></summary><div class="menu"><a href="en/" hreflang="en" lang="en" data-umami-event="lang-switch" data-umami-event-to="en"><svg class="flag" viewBox="0 0 60 30" aria-hidden="true" focusable="false"><clipPath id="gbc1"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><path d="M0,0v30h60v-30z" fill="#012169"/><path d="M0,0 60,30M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 60,30M60,0 0,30" clip-path="url(#gbc1)" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></svg>English</a></div></details>
   <div class="in">
     <div class="hero-row">
       <div class="hero-l"><h1>Charles<br><span class="nom">Delepelaire</span></h1>
@@ -402,5 +418,6 @@ h2{font:800 clamp(28px,4.4vw,52px)/1.02 var(--display);letter-spacing:-.035em;ma
 </div></footer>
 </div>
 <nav class="dock" aria-label="Contact rapide"><a href="tel:+33759694974" data-umami-event="contact-tel" data-umami-event-place="dock">Appeler</a><a href="mailto:charles-web@hotmail.fr" data-umami-event="contact-mail" data-umami-event-place="dock">Écrire</a></nav>
+<script>(function(){var d=document.querySelector(".lang");if(!d)return;document.addEventListener("click",function(e){if(d.open&&!d.contains(e.target))d.open=false});document.addEventListener("keydown",function(e){if(e.key==="Escape"&&d.open){d.open=false;d.querySelector("summary").focus()}})})();</script>
 </body>
 </html>
