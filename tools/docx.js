@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const {
   Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell, WidthType, ShadingType,
-  BorderStyle, AlignmentType, VerticalAlign, LevelFormat, Footer, ExternalHyperlink, TableLayoutType, LineRuleType,
+  BorderStyle, AlignmentType, VerticalAlign, LevelFormat, Footer, ExternalHyperlink, TableLayoutType, LineRuleType, HeadingLevel,
 } = require('docx');
 
 const [lang, out] = process.argv.slice(2);
@@ -44,8 +44,8 @@ const cell = (children, w, o = {}) => new TableCell({ children, width: { size: w
   margins: o.margins || { top: 80, bottom: 80, left: 140, right: 140 }, verticalAlign: o.v || VerticalAlign.TOP });
 const table = (rows, widths) => new Table({ rows, columnWidths: widths, width: { size: widths.reduce((a, c) => a + c, 0), type: WidthType.DXA },
   borders: noBorders, layout: TableLayoutType.FIXED });
-const heading = (text) => para(run(text, { size: 30, bold: true, color: C.purple }), { align: AlignmentType.LEFT, before: 220, after: 110, keepNext: true,
-  border: { bottom: { style: BorderStyle.SINGLE, size: 18, color: C.sun, space: 4 } } });
+// Vrais titres de niveau 1 (style Titre 1) : repérés par Word, les lecteurs d'écran et les logiciels de tri
+const heading = (text) => new Paragraph({ heading: HeadingLevel.HEADING_1, children: [run(text, { size: 30, bold: true, color: C.purple })] });
 const bullets = (items) => items.map((t) => para(run(t), { bullet: true, after: 40 }));
 const spacer = (after = 60) => para(run(''), { after });
 
@@ -138,7 +138,9 @@ const interests = para([run(L.interests, { bold: true, color: C.deep }), run(`${
 
 const doc = new Document({
   creator: b.name, title: `${b.name} – ${b.label}`, description: b.summary, lastModifiedBy: b.name,
-  styles: { default: { document: { run: { font: FONT, size: 21, color: C.ink } } } },
+  styles: { default: { document: { run: { font: FONT, size: 21, color: C.ink } },
+    heading1: { run: { font: FONT, size: 30, bold: true, color: C.purple }, paragraph: { spacing: { before: 220, after: 110 }, keepNext: true,
+      border: { bottom: { style: BorderStyle.SINGLE, size: 18, color: C.sun, space: 4 } } } } } },
   numbering: { config: [{ reference: 'puce', levels: [{ level: 0, format: LevelFormat.BULLET, text: '▸', alignment: AlignmentType.LEFT,
     style: { paragraph: { indent: { left: 300, hanging: 240 } }, run: { color: C.turq } } }] }] },
   sections: [{

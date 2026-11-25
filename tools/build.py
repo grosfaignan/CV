@@ -158,7 +158,8 @@ def build_ats_html(r, t):
                 H.append("<ul>" + "".join(f"<li>{e(x)}</li>" for x in it["bullets"]) + "</ul>")
             H.append("</div>")
     H.append("</body></html>")
-    return "".join(H)
+    # Apostrophes droites : certains logiciels de tri lisent mal l’apostrophe typographique
+    return "".join(H).replace("\u2019", "'")
 
 
 def build_pdf(html_str, path, browser):
@@ -166,7 +167,7 @@ def build_pdf(html_str, path, browser):
     tmp.write_text(html_str, encoding="utf-8")
     page = browser.new_page()
     page.goto(tmp.as_uri()); page.wait_for_timeout(300)
-    page.pdf(path=str(path), format="A4", prefer_css_page_size=True, print_background=False)
+    page.pdf(path=str(path), format="A4", prefer_css_page_size=True, print_background=False, tagged=True, outline=True)
     page.close(); tmp.unlink()
 
 
