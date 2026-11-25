@@ -12,7 +12,7 @@ const [lang, out] = process.argv.slice(2);
 const r = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', `resume.${lang}.json`), 'utf8'));
 const b = r.basics;
 
-const C = { purple: '84488C', deep: '5A2A62', sun: 'FFC83D', turq: '0091A6', ink: '52565F', muted: '7A7E8B', band: 'F3E9F4', lav: 'E9D7ED', paper: 'F9F6FB', white: 'FFFFFF' };
+const C = { tdeep: '00788A', tlight: 'D0F1F8', purple: '84488C', deep: '5A2A62', sun: 'FFC83D', turq: '0091A6', ink: '52565F', muted: '7A7E8B', band: 'F3E9F4', lav: 'E9D7ED', paper: 'F9F6FB', white: 'FFFFFF' };
 const FONT = 'Calibri';
 const L = {
   fr: { now: 'Actuellement', prac: 'Pratique', path: 'Parcours', skills: 'Compétences techniques', projects: 'Projets informatiques personnels',
@@ -59,7 +59,7 @@ const header = table([new TableRow({ children: [cell([
   para(contact.map((t, i) => run((i ? '   ·   ' : '') + t, { size: 19, color: C.white })), { align: AlignmentType.LEFT, after: 40 }),
   para(new ExternalHyperlink({ link: b.url, children: [run(`${L.online} : ${b.url}`.replace(' :', lang === 'en' ? ':' : ' :'), { size: 19, color: C.sun, bold: true })] }),
     { align: AlignmentType.LEFT, after: 0 }),
-], W, { fill: C.purple, margins: { top: 360, bottom: 300, left: 400, right: 400 } })] })], [W]);
+], W, { fill: C.purple, borders: { ...cellNone, bottom: { style: BorderStyle.SINGLE, size: 48, color: C.turq } }, margins: { top: 360, bottom: 300, left: 400, right: 400 } })] })], [W]);
 
 // ---------- profil ----------
 const sentences = b.summary.split(/(?<=\.)\s+/);
@@ -91,7 +91,7 @@ const pill = (name, i) => i === 0 ? run(` ${name} `, { size: 19, bold: true, col
 const legend = para(L.lvl.map((t, i) => [pill(t, i), run('   ')]).flat(), { align: AlignmentType.LEFT, after: 120 });
 const kw = 2600;
 const skillRows = r.skills.map((s) => new TableRow({ cantSplit: true, children: [
-  cell([para(run(s.name, { size: 19, bold: true, color: C.ink }), { align: AlignmentType.LEFT, after: 0 })], kw, { fill: C.lav, v: VerticalAlign.CENTER }),
+  cell([para(run(s.name, { size: 19, bold: true, color: C.tdeep }), { align: AlignmentType.LEFT, after: 0 })], kw, { fill: C.tlight, v: VerticalAlign.CENTER }),
   cell([para(s.keywords.map(level).map((x, j) => [j ? run('  ') : null, pill(x.name, x.i)]).flat().filter(Boolean), { align: AlignmentType.LEFT, after: 0, line: 320 })],
     W - kw, { fill: C.band, v: VerticalAlign.CENTER }),
 ] }));
@@ -110,7 +110,7 @@ function dated(left, title, sub, items, accent) {
     ], W - dw, { margins: { top: 70, bottom: 70, left: 160, right: 60 } }),
   ] });
 }
-const dates = (a, bb) => [para(run(a, { size: 19, bold: true, color: C.purple }), { align: AlignmentType.LEFT, after: 0 }),
+const dates = (a, bb) => [para(run(a, { size: 19, bold: true, color: C.turq }), { align: AlignmentType.LEFT, after: 0 }),
   ...(bb ? [para(run(bb, { size: 17, color: C.muted }), { align: AlignmentType.LEFT, after: 0 })] : [])];
 const block = (rows) => new Table({ rows, columnWidths: [dw, W - dw], width: { size: W, type: WidthType.DXA }, layout: TableLayoutType.FIXED,
   borders: { ...noBorders, insideHorizontal: { style: BorderStyle.SINGLE, size: 4, color: 'E6E1EC' } } });
@@ -124,23 +124,23 @@ const projects = block(r.projects.map((p) => {
 }));
 const isMinor = (w) => !w.highlights || !w.highlights.length;
 const job = (w) => dated(dates(fmt(w.startDate), w.endDate ? fmt(w.endDate) : L.present),
-  `${w.position}${lang === 'fr' ? ', ' : ', '}${w.name}${w.location ? ` (${w.location})` : ''}`, w.summary, w.highlights, C.purple);
+  `${w.position}${lang === 'fr' ? ', ' : ', '}${w.name}${w.location ? ` (${w.location})` : ''}`, w.summary, w.highlights, C.turq);
 const vol = r.volunteer.map((v) => dated(dates(fmt(v.startDate), v.endDate ? fmt(v.endDate) : L.present), `${v.position}, ${v.organization}`, null, v.highlights, 'E07A5F'));
 const work = block([...vol, ...r.work.filter((w) => !isMinor(w) || w.summary).map(job)]);
 const earlier = r.work.filter((w) => isMinor(w) && !w.summary).map((w) =>
-  para([run(`${period(w)}   `, { size: 19, bold: true, color: C.purple }), run(`${w.position}, ${w.name}${w.location ? ` (${w.location})` : ''}`, { size: 19 })],
+  para([run(`${period(w)}   `, { size: 19, bold: true, color: C.turq }), run(`${w.position}, ${w.name}${w.location ? ` (${w.location})` : ''}`, { size: 19 })],
     { align: AlignmentType.LEFT, after: 40 }));
 const edu = block(r.education.map((e) => dated(dates(e.endDate ? `${fmt(e.startDate)} – ${fmt(e.endDate)}` : fmt(e.startDate)),
   `${e.studyType} – ${e.area}`, e.institution, e.courses, C.sun)));
 
-const langs = r.languages.map((l) => para([run(l.language, { bold: true, color: C.deep }), run(`${L.sep}${l.fluency}`)], { align: AlignmentType.LEFT, after: 40 }));
-const interests = para([run(L.interests, { bold: true, color: C.deep }), run(`${L.sep}${r.interests.map((i) => i.name).join(', ')}`)], { align: AlignmentType.LEFT, after: 0 });
+const langs = r.languages.map((l) => para([run(l.language, { bold: true, color: C.tdeep }), run(`${L.sep}${l.fluency}`)], { align: AlignmentType.LEFT, after: 40 }));
+const interests = para([run(L.interests, { bold: true, color: C.tdeep }), run(`${L.sep}${r.interests.map((i) => i.name).join(', ')}`)], { align: AlignmentType.LEFT, after: 0 });
 
 const doc = new Document({
   creator: b.name, title: `${b.name} – ${b.label}`, description: b.summary, lastModifiedBy: b.name,
   styles: { default: { document: { run: { font: FONT, size: 21, color: C.ink } },
     heading1: { run: { font: FONT, size: 30, bold: true, color: C.purple }, paragraph: { spacing: { before: 220, after: 110 }, keepNext: true,
-      border: { bottom: { style: BorderStyle.SINGLE, size: 18, color: C.sun, space: 4 } } } } } },
+      border: { bottom: { style: BorderStyle.SINGLE, size: 18, color: C.turq, space: 4 } } } } } },
   numbering: { config: [{ reference: 'puce', levels: [{ level: 0, format: LevelFormat.BULLET, text: '▸', alignment: AlignmentType.LEFT,
     style: { paragraph: { indent: { left: 300, hanging: 240 } }, run: { color: C.turq } } }] }] },
   sections: [{

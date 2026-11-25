@@ -145,26 +145,26 @@ def build_ats_html(r, t):
         "@page{size:A4;margin:11mm 14mm 11mm}"
         "*{box-sizing:border-box}body{margin:0;font:10pt/1.4 IS,Arial,sans-serif;color:#52565F}"
         "p,li{text-align:justify;hyphens:manual;margin:0}"
-        ".hero{background:#84488C;color:#fff;border-radius:10px;padding:14px 22px 12px;margin-bottom:10px}"
+        ".hero{background:#84488C;color:#fff;border-radius:10px;border-bottom:6px solid #0091A6;padding:14px 22px 12px;margin-bottom:10px}"
         "h1{font:700 24pt/1.05 MR,Arial,sans-serif;margin:0 0 8px;letter-spacing:.005em}"
         ".label{display:inline-block;background:#FFC83D;color:#52565F;font:600 11pt/1.3 UB,Arial,sans-serif;padding:4px 10px;margin:0 0 9px;letter-spacing:-.01em}"
         ".contact{font-size:9pt;color:#fff;text-align:left}.contact a{color:#FFC83D;text-decoration:none;font-weight:600}"
-        ".lede{border-left:5px solid #0091A6;background:#F3E9F4;padding:8px 12px;border-radius:0 8px 8px 0}"
-        "h2{font:600 12pt/1.2 UB,Arial,sans-serif;color:#84488C;border-bottom:2.5px solid #FFC83D;margin:10px 0 6px;padding-bottom:2px;break-after:avoid;letter-spacing:-.01em}"
+        ".lede{border-left:5px solid #0091A6;background:#E3F5F8;padding:8px 12px;border-radius:0 8px 8px 0}"
+        "h2{font:600 12pt/1.2 UB,Arial,sans-serif;color:#84488C;border-bottom:2.5px solid #0091A6;margin:10px 0 6px;padding-bottom:2px;break-after:avoid;letter-spacing:-.01em}"
         ".legend{font-size:8.5pt;margin:0 0 5px}"
-        ".sk{margin:0 0 3px;line-height:1.7;text-align:left}.sk b{color:#5A2A62;margin-right:4px}"
+        ".sk{margin:0 0 3px;line-height:1.7;text-align:left}.sk b{color:#00788A;margin-right:4px}"
         ".pill{display:inline;padding:1px 5px;border-radius:4px;font-size:8.8pt;white-space:nowrap}"
         ".pill.p{background:#84488C;color:#fff;font-weight:600}.pill.i{background:#E9D7ED;color:#84488C;font-weight:600}.pill.n{color:#7A7E8B;font-style:italic}"
         ".pill small{font-size:7.5pt;font-weight:400;opacity:.85}"
         ".item{border-left:3.5px solid var(--a);padding:1px 0 1px 10px;margin:0 0 6px;break-inside:avoid}"
         ".head{display:flex;justify-content:space-between;gap:12px;align-items:baseline}"
         "h3{font:600 10.2pt/1.3 IS,Arial,sans-serif;color:#5A2A62;margin:0}"
-        ".date{font-weight:600;color:#84488C;font-size:8.8pt;white-space:nowrap;margin:0}"
+        ".date{font-weight:600;color:#0091A6;font-size:8.8pt;white-space:nowrap;margin:0}"
         ".sub{font-style:italic;color:#7A7E8B;font-size:9pt;margin:1px 0 2px;text-align:left}"
         "ul{margin:2px 0 0 15px;padding:0}li{margin:1px 0}li::marker{color:#0091A6}"
-        ".short{margin:0 0 3px;text-align:left}.short b{color:#84488C}"
+        ".short{margin:0 0 3px;text-align:left}.short b{color:#00788A}"
     )
-    acc = {2: "#84488C", 3: "#E07A5F", 4: "#0091A6", 5: "#FFC83D"}
+    acc = {2: "#0091A6", 3: "#E07A5F", 4: "#0091A6", 5: "#FFC83D"}
     contact = contact_line(b)
     H = [f'<!doctype html><html lang="{r["meta"]["language"]}"><head><meta charset="utf-8">',
          f'<title>{e(b["name"])} – {e(b["label"])}</title><style>{css}</style></head><body>',
