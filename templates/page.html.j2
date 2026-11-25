@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="{{ lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ seo.title|h }}</title>
+<meta name="description" content="{{ seo.description|h }}">
+<meta name="author" content="{{ name }}">
+<link rel="alternate" hreflang="fr" href="{{ url_fr }}">
+<link rel="alternate" hreflang="en" href="{{ url_en }}">
+<link rel="alternate" hreflang="x-default" href="{{ url_fr }}">
+<link rel="canonical" href="{{ url }}">
+<meta name="theme-color" content="#84488C">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="{{ url }}">
+<meta property="og:title" content="{{ seo.og_title|h }}">
+<meta property="og:description" content="{{ seo.og_description|h }}">
+<meta property="og:image" content="{{ site_url }}{{ seo.og_image }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ seo.og_image_alt|h }}">
+<meta property="og:locale" content="{{ locale }}">
+<meta property="og:locale:alternate" content="{{ locale_alt }}">
+<meta property="profile:first_name" content="{{ p.first_name }}">
+<meta property="profile:last_name" content="{{ p.last_name }}">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{{ jsonld }}
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2384488C'/%3E%3Cpath d='M16 6l10 5-10 5-10-5z' fill='%23FFC83D'/%3E%3Cpath d='M6 17l10 5 10-5M6 22l10 5 10-5' fill='none' stroke='%23fff' stroke-width='2.4'/%3E%3C/svg%3E">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="{{ site.umami_id }}" data-domains="{{ site.umami_domain }}" data-do-not-track="true"></script>
+<link rel="preload" href="{{ root }}fonts/Manrope-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ root }}fonts/InstrumentSans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ root }}style.css?v={{ site.asset_version.css }}">
+</head>
+<body>
+<div class="sheet">
+<header class="hero">
+  <div class="in">
+    <div class="hero-row">
+      <div class="hero-l"><div class="namewrap"><h1>{{ p.first_name }}<br><span class="nom">{{ p.last_name }}</span></h1><a class="lang" href="{{ other_href }}" hreflang="{{ other }}" title="{{ ui.lang_switch }}" aria-label="{{ ui.lang_switch }}" data-umami-event="lang-switch" data-umami-event-to="{{ other }}">{{ flag }}</a></div>
+      <p class="role"><strong>{{ label|h }}</strong>{% for l in role_lines %}<span>{{ l }}</span>{% endfor %}</p></div>
+      <svg class="pile" viewBox="0 0 270 330" role="group" aria-label="{{ ui.downloads_aria }}">
+{% for d in downloads %}<a class="dl" href="{{ root }}downloads/{{ lang }}/{{ d.file }}" download="{{ d.file }}" aria-label="{{ d.label }}" data-fmt="{{ d.fmt }}" data-edge="{{ d.edge }}" data-umami-event="download" data-umami-event-format="{{ d.fmt }}"><title>{{ d.label }}</title><g class="cd"><polygon class="hit" points="135,{{ d.y0 }} 255,{{ d.y0 + 60 }} 255,{{ d.y0 + 76 }} 135,{{ d.y0 + 136 }} 15,{{ d.y0 + 76 }} 15,{{ d.y0 + 60 }}" fill="#000" fill-opacity="0"/><g class="slab"><polygon points="15,{{ d.y0 + 60 }} 135,{{ d.y0 + 120 }} 135,{{ d.y0 + 136 }} 15,{{ d.y0 + 76 }}" fill="{{ d.colors[0] }}"/><polygon points="135,{{ d.y0 + 120 }} 255,{{ d.y0 + 60 }} 255,{{ d.y0 + 76 }} 135,{{ d.y0 + 136 }}" fill="{{ d.colors[1] }}"/><polygon points="135,{{ d.y0 }} 255,{{ d.y0 + 60 }} 135,{{ d.y0 + 120 }} 15,{{ d.y0 + 60 }}" fill="{{ d.colors[2] }}"/></g></g></a>{% endfor %}
+</svg>
+    </div>
+    <ul class="contact" aria-label="{{ ui.contact_aria }}">
+      <li>{{ p.location_label }}</li>
+      <li><a href="tel:{{ p.phone.tel }}" data-umami-event="contact-tel" data-umami-event-place="header">{{ phone_display }}</a></li>
+      <li><a href="mailto:{{ p.email }}" data-umami-event="contact-mail" data-umami-event-place="header">{{ p.email }}</a></li>
+      <li><a href="https://github.com/{{ p.github }}" data-umami-event="github-click">github.com/{{ p.github }}</a></li>
+    </ul>
+    <p class="pdfrow"><a class="pdfbtn" href="{{ designed_pdf }}" download data-umami-event="pdf-download"{% if lang != 'fr' %} data-umami-event-lang="{{ lang }}"{% endif %}>{{ ui.download_pdf }}</a></p>
+  </div>
+</header>
+<main>
+<section class="profil" aria-labelledby="h-profil"><div class="in"><h2 class="sr" id="h-profil">{{ ui.profile }}</h2>
+<p class="lede">{{ profile.lede }}</p>
+<div class="cards">
+{% for c in profile.cards %}  <article class="card"><span class="tag">{{ c.tag }}</span><p>{{ c.text }}</p></article>
+{% endfor %}</div>
+<p class="goal"><span>{{ profile.goal }}</span></p>
+</div></section>
+<section class="pilesec" aria-labelledby="h-comp"><div class="in"><h2 id="h-comp">{{ ui.skills }}</h2>
+
+<ul class="legend" aria-label="{{ ui.legend_aria }}">{% for k in 'pin' %}<li class="b {{ k }}">{{ ui.levels[k] }}</li>{% endfor %}</ul>
+<div class="stack">
+  <div class="layers">
+{% for s in skills if not s.security %}    <div class="layer"><h3>{{ s.name }}</h3><div class="cells"><ul>{% for it in s['items'] %}<li class="b {{ it.level }}">{{ it.name }}<span class="sr"> ({{ ui.levels_sr[it.level] }})</span></li>{% endfor %}</ul>{% if s.note %}<p class="note">{{ s.note }}</p>{% endif %}</div></div>
+{% endfor %}  </div>
+{% for s in skills if s.security %}  <div class="layer sec"><h3>{{ s.name }}<small>{{ s.small }}</small></h3><div class="cells"><ul>{% for it in s['items'] %}<li class="b {{ it.level }}">{{ it.name }}<span class="sr"> ({{ ui.levels_sr[it.level] }})</span></li>{% endfor %}</ul></div></div>
+{% endfor %}</div>
+</div></section>
+<section class="projets" aria-labelledby="h-proj"><div class="in"><h2 id="h-proj">{{ ui.projects }}</h2>
+{% for pr in projects %}<article class="proj">
+  <div class="proj-when"><span class="year">{{ pr.year }}</span><span class="sticker {{ pr.status }}">{{ ui.status[pr.status] }}</span></div>
+  <div class="proj-body"><h3>{{ pr.title }}</h3><p class="sub">{{ pr.sub }}</p><ul class="points">{% for pt in pr.points %}<li>{{ pt }}</li>{% endfor %}</ul></div>
+</article>
+{% endfor %}</div></section>
+<section class="experience" aria-labelledby="h-exp"><div class="in"><h2 id="h-exp">{{ ui.experience }}</h2>
+<div class="tl tl3" role="img" aria-label="{{ ui.timeline_aria }}">
+  <div class="tl-plot" style="height:calc(var(--lh) * 5 + var(--off) + var(--barh) + 4px)">{% for r in tl.bands %}<i class="band" style="top:calc(var(--lh) * {{ r }});height:var(--lh);width:{{ tl.now }}%"></i>{% endfor %}<div class="in3">{% for t in tl.ticks %}<b class="tick" style="left:{{ t.left }}%"><span>{{ t.year }}</span></b>{% endfor %}{% for c in tl.caps %}<span class="cap" style="top:calc(var(--lh) * {{ loop.index0 }})">{{ c }}</span>{% endfor %}{% for b in tl.bars %}<i class="bar c-{{ b.cls }}" style="left:{{ b.left }}%;width:{{ b.width }}%;top:calc(var(--lh) * {{ b.row }} + var(--off))" title="{{ b.title }}"></i>{% endfor %}<b class="now" style="left:{{ tl.now }}%"><span>{{ ui.today }}</span></b></div></div>
+  <div class="tl-axis"></div>
+</div>
+<ul class="jobs">
+{% for j in jobs %}<li class="job"><div class="job-when"><i class="sw c-{{ j.row }}"></i><span>{{ j.from }}</span><span class="to">{{ j.to }}</span></div>
+  <div class="job-what"><h3>{{ j.title }}</h3>{% if j.sub %}<p class="sub">{{ j.sub }}</p>{% endif %}<ul class="points">{% for pt in j.points %}<li>{{ pt }}</li>{% endfor %}</ul></div></li>
+{% endfor %}</ul>
+<h3 class="old-h">{{ ui.earlier }}</h3>
+<ul class="old">
+{% for j in old %}<li><span class="od">{{ j.from }} – {{ j.to }}</span><span class="ot">{{ j.title }}</span></li>
+{% endfor %}</ul>
+</div></section>
+</main>
+<footer class="foot"><div class="in">
+  <section aria-labelledby="h-form"><h2 id="h-form">{{ ui.education }}</h2><ul class="edu">{% for e in education %}<li><h3>{{ e.title }}</h3><p class="date">{{ e.date }}</p>{% if e.sub %}<p class="sub">{{ e.sub }}</p>{% endif %}</li>{% endfor %}</ul></section>
+  <section aria-labelledby="h-more"><h2 id="h-more">{{ ui.more }}</h2><dl class="more">{% for m in more %}<div><dt>{{ m.term }}</dt><dd>{{ m.text }}</dd></div>{% endfor %}</dl></section>
+  <details class="privacy"><summary>{{ ui.privacy }}</summary><p>{{ ui.privacy_text }} <a href="#" id="optout">{{ ui.optout }}</a><span id="optout-ok" hidden>{{ ui.optout_ok }}</span></p></details>
+<script>(function(){var a=document.getElementById('optout'),k='umami.disabled';function done(){a.hidden=true;document.getElementById('optout-ok').hidden=false}try{if(localStorage.getItem(k))done()}catch(e){}a.addEventListener('click',function(e){e.preventDefault();try{localStorage.setItem(k,'1')}catch(e){}done()})})();</script>
+</div></footer>
+</div>
+<nav class="dock" aria-label="{{ ui.dock_aria }}"><a href="tel:{{ p.phone.tel }}" data-umami-event="contact-tel" data-umami-event-place="dock">{{ ui.call }}</a><a href="mailto:{{ p.email }}" data-umami-event="contact-mail" data-umami-event-place="dock">{{ ui.write }}</a></nav>
+<script defer src="{{ root }}pile.js?v={{ site.asset_version.js }}"></script>
+</body>
+</html>

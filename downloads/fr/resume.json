@@ -93,20 +93,20 @@
     {
       "organization": "1000 Mains et Merveilles",
       "position": "Bénévole : conseil et études de marché",
-      "startDate": "2026-08",
       "highlights": [
         "Participation à l’élaboration d’une nouvelle offre destinée au marché B2B : collecte de données (mission principale), quelques analyses et documents de communication"
-      ]
+      ],
+      "startDate": "2026-08"
     },
     {
       "organization": "Emmaüs Connect",
       "position": "Bénévole",
-      "startDate": "2026-07",
       "highlights": [
         "Vente de matériel informatique aux bénéficiaires",
         "Accompagnement des bénéficiaires dans l’accès aux équipements informatiques",
         "Participation au reconditionnement de matériel informatique"
-      ]
+      ],
+      "startDate": "2026-07"
     }
   ],
   "projects": [
@@ -135,7 +135,7 @@
       "startDate": "2025",
       "description": "Projet personnel, non abouti faute de temps (interrompu).",
       "highlights": [
-        "Objectif : passthrough d’un GPU (RTX 3050) vers deux machines virtuelles de développement (Windows et Fedora), avec réinitialisation à chaud du GPU et basculement à chaud d’une machine virtuelle à l’autre",
+        "Objectif : passthrough d’un GPU (RTX 3050) vers deux machines virtuelles de développement (Windows et Fedora), avec réinitialisation à chaud du GPU après le démarrage de l’hôte et basculement à chaud d’une machine virtuelle à l’autre",
         "Blocage identifié : le groupe IOMMU du GPU inclut son contrôleur audio, qu’il faut retirer pour permettre une réinitialisation correcte du GPU ; problème non résolu",
         "Piste envisagée, non démarrée : machine virtuelle dédiée à la distribution du GPU"
       ]
@@ -146,7 +146,7 @@
       "institution": "CNAM",
       "area": "Réseau, sécurité informatique et mathématiques (UTC505, MVA911)",
       "studyType": "Reprise de formation",
-      "startDate": "2026"
+      "startDate": "2026-09"
     },
     {
       "institution": "CNAM Paris",
@@ -238,8 +238,8 @@
         "Python (initiation)",
         "JavaScript / Node.js (initiation)",
         "PHP / Symfony (initiation)",
-        "WordPress, jusqu’en 2022 (initiation)",
-        "C, C++, API Win32, bases anciennes (notions)"
+        "WordPress (jusqu’en 2022) (initiation)",
+        "C, C++, API Win32 (bases anciennes) (notions)"
       ]
     },
     {
@@ -255,23 +255,23 @@
     {
       "name": "Sécurité",
       "keywords": [
-        "Cloudflare",
-        "AppArmor",
-        "auditd",
-        "Fail2Ban",
-        "SELinux",
-        "split-GPG",
-        "split-SSH",
-        "qrexec",
+        "Cloudflare (notions)",
+        "AppArmor (notions)",
+        "auditd (notions)",
+        "Fail2Ban (notions)",
+        "SELinux (notions)",
+        "split-GPG (notions)",
+        "split-SSH (notions)",
+        "qrexec (notions)",
         "politiques Qubes (notions)"
       ]
     },
     {
       "name": "CAO et électronique",
       "keywords": [
-        "Autodesk Fusion 360 (bon à très bon niveau)",
-        "Autodesk Inventor",
-        "SolidWorks",
+        "Autodesk Fusion 360 (pratique)",
+        "Autodesk Inventor (notions)",
+        "SolidWorks (notions)",
         "Eagle CAD (initiation)",
         "Altium Designer (initiation)"
       ]

@@ -15,10 +15,10 @@ En reconversion vers le support et l’exploitation informatique, avec l’admin
 - **Réseau** : TCP/IP (notions), DNS (notions), DHCP (notions), VPN (notions)
 - **Automatisation** : Bash (pratique), Git (pratique), GitHub (pratique), GitHub Actions (pratique), Ansible (initiation), Terraform / OpenTofu (notions)
 - **Supervision** : Grafana (notions), Prometheus (notions), Loki (notions)
-- **Développement** : C# (pratique), HTML / CSS (pratique), Python (initiation), JavaScript / Node.js (initiation), PHP / Symfony (initiation), WordPress, jusqu’en 2022 (initiation), C, C++, API Win32, bases anciennes (notions)
+- **Développement** : C# (pratique), HTML / CSS (pratique), Python (initiation), JavaScript / Node.js (initiation), PHP / Symfony (initiation), WordPress (jusqu’en 2022) (initiation), C, C++, API Win32 (bases anciennes) (notions)
 - **Documentation** : Markdown (pratique), AsciiDoc (pratique), Word (pratique), PowerPoint (pratique), JupyterLab (notions)
-- **Sécurité** : Cloudflare, AppArmor, auditd, Fail2Ban, SELinux, split-GPG, split-SSH, qrexec, politiques Qubes (notions)
-- **CAO et électronique** : Autodesk Fusion 360 (bon à très bon niveau), Autodesk Inventor, SolidWorks, Eagle CAD (initiation), Altium Designer (initiation)
+- **Sécurité** : Cloudflare (notions), AppArmor (notions), auditd (notions), Fail2Ban (notions), SELinux (notions), split-GPG (notions), split-SSH (notions), qrexec (notions), politiques Qubes (notions)
+- **CAO et électronique** : Autodesk Fusion 360 (pratique), Autodesk Inventor (notions), SolidWorks (notions), Eagle CAD (initiation), Altium Designer (initiation)
 
 ## Expérience professionnelle
 
@@ -97,14 +97,14 @@ Projet personnel (en cours).
 
 Projet personnel, non abouti faute de temps (interrompu).
 
-- Objectif : passthrough d’un GPU (RTX 3050) vers deux machines virtuelles de développement (Windows et Fedora), avec réinitialisation à chaud du GPU et basculement à chaud d’une machine virtuelle à l’autre
+- Objectif : passthrough d’un GPU (RTX 3050) vers deux machines virtuelles de développement (Windows et Fedora), avec réinitialisation à chaud du GPU après le démarrage de l’hôte et basculement à chaud d’une machine virtuelle à l’autre
 - Blocage identifié : le groupe IOMMU du GPU inclut son contrôleur audio, qu’il faut retirer pour permettre une réinitialisation correcte du GPU ; problème non résolu
 - Piste envisagée, non démarrée : machine virtuelle dédiée à la distribution du GPU
 
 ## Formation
 
 ### Reprise de formation – Réseau, sécurité informatique et mathématiques (UTC505, MVA911), CNAM
-*2026 – aujourd’hui*
+*09/2026 – aujourd’hui*
 
 ### Certificat de spécialité – Marketing B2B, CNAM Paris
 *09/2008 – 06/2010*

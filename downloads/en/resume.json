@@ -93,20 +93,20 @@
     {
       "organization": "1000 Mains et Merveilles",
       "position": "Volunteer: consulting and market research",
-      "startDate": "2026-08",
       "highlights": [
         "Helping build a new B2B offering: data collection (main task), some analysis and communication materials"
-      ]
+      ],
+      "startDate": "2026-08"
     },
     {
       "organization": "Emmaüs Connect (digital inclusion charity)",
       "position": "Volunteer",
-      "startDate": "2026-07",
       "highlights": [
         "Selling IT equipment to beneficiaries",
         "Helping beneficiaries get access to IT equipment",
         "Taking part in refurbishing IT equipment"
-      ]
+      ],
+      "startDate": "2026-07"
     }
   ],
   "projects": [
@@ -135,7 +135,7 @@
       "startDate": "2025",
       "description": "Personal project, not completed for lack of time (on hold).",
       "highlights": [
-        "Goal: pass a GPU (RTX 3050) through to two development virtual machines (Windows and Fedora), with a hot GPU reset and hot switching from one virtual machine to the other",
+        "Goal: pass a GPU (RTX 3050) through to two development virtual machines (Windows and Fedora), with a hot GPU reset after host boot and hot switching from one virtual machine to the other",
         "Blocker identified: the GPU’s IOMMU group includes its audio controller, which must be removed for the GPU to reset correctly; not yet solved",
         "Possible next step, not started: a virtual machine dedicated to sharing out the GPU"
       ]
@@ -146,7 +146,7 @@
       "institution": "CNAM (French national school for continuing education)",
       "area": "Networking, IT security and mathematics (UTC505, MVA911)",
       "studyType": "Continuing education",
-      "startDate": "2026"
+      "startDate": "2026-09"
     },
     {
       "institution": "CNAM Paris",
@@ -191,7 +191,7 @@
         "Windows 11 (hands-on)",
         "Proxmox (beginner)",
         "Qubes OS (beginner)",
-        "OpenBSD (basic)"
+        "OpenBSD (basic knowledge)"
       ]
     },
     {
@@ -199,16 +199,16 @@
       "keywords": [
         "Docker (beginner)",
         "KVM (beginner)",
-        "Hyper-V (basic)"
+        "Hyper-V (basic knowledge)"
       ]
     },
     {
       "name": "Networking",
       "keywords": [
-        "TCP/IP (basic)",
-        "DNS (basic)",
-        "DHCP (basic)",
-        "VPN (basic)"
+        "TCP/IP (basic knowledge)",
+        "DNS (basic knowledge)",
+        "DHCP (basic knowledge)",
+        "VPN (basic knowledge)"
       ]
     },
     {
@@ -219,15 +219,15 @@
         "GitHub (hands-on)",
         "GitHub Actions (hands-on)",
         "Ansible (beginner)",
-        "Terraform / OpenTofu (basic)"
+        "Terraform / OpenTofu (basic knowledge)"
       ]
     },
     {
       "name": "Monitoring",
       "keywords": [
-        "Grafana (basic)",
-        "Prometheus (basic)",
-        "Loki (basic)"
+        "Grafana (basic knowledge)",
+        "Prometheus (basic knowledge)",
+        "Loki (basic knowledge)"
       ]
     },
     {
@@ -238,8 +238,8 @@
         "Python (beginner)",
         "JavaScript / Node.js (beginner)",
         "PHP / Symfony (beginner)",
-        "WordPress, until 2022 (beginner)",
-        "C, C++, Win32 API, older basics (basic)"
+        "WordPress (until 2022) (beginner)",
+        "C, C++, Win32 API (older basics) (basic knowledge)"
       ]
     },
     {
@@ -249,29 +249,29 @@
         "AsciiDoc (hands-on)",
         "Word (hands-on)",
         "PowerPoint (hands-on)",
-        "JupyterLab (basic)"
+        "JupyterLab (basic knowledge)"
       ]
     },
     {
       "name": "Security",
       "keywords": [
-        "Cloudflare",
-        "AppArmor",
-        "auditd",
-        "Fail2Ban",
-        "SELinux",
-        "split-GPG",
-        "split-SSH",
-        "qrexec",
-        "Qubes policies (basic)"
+        "Cloudflare (basic knowledge)",
+        "AppArmor (basic knowledge)",
+        "auditd (basic knowledge)",
+        "Fail2Ban (basic knowledge)",
+        "SELinux (basic knowledge)",
+        "split-GPG (basic knowledge)",
+        "split-SSH (basic knowledge)",
+        "qrexec (basic knowledge)",
+        "Qubes policies (basic knowledge)"
       ]
     },
     {
       "name": "CAD and electronics",
       "keywords": [
-        "Autodesk Fusion 360 (good to very good)",
-        "Autodesk Inventor",
-        "SolidWorks",
+        "Autodesk Fusion 360 (hands-on)",
+        "Autodesk Inventor (basic knowledge)",
+        "SolidWorks (basic knowledge)",
         "Eagle CAD (beginner)",
         "Altium Designer (beginner)"
       ]

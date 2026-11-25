@@ -1,0 +1,58 @@
+# Régénère tout le CV (pages web, PDF, Word, Markdown, vCard, JSON Resume)
+# à chaque modification de la source unique cv.yaml ou des outils de génération,
+# puis enregistre les fichiers produits dans la branche.
+name: Régénérer le CV
+
+on:
+  push:
+    paths:
+      - cv.yaml
+      - templates/**
+      - tools/**
+      - style.css
+      - pile.js
+      - fonts/**
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-cv-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Dépendances
+        run: |
+          pip install -r requirements.txt
+          python -m playwright install --with-deps chromium
+          npm install --no-audit --no-fund
+
+      - name: Génération
+        run: python tools/build.py
+
+      - name: Enregistrer les fichiers régénérés
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898299+github-actions[bot]@users.noreply.github.com"
+          git add -A index.html en/ downloads/ CV_Charles_Delepelaire.pdf
+          if git diff --cached --quiet; then
+            echo "Rien à mettre à jour."
+          else
+            git commit -m "CV régénéré depuis cv.yaml"
+            git push
+          fi

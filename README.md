@@ -2,27 +2,44 @@
 
 **Technicien support et exploitation informatique junior – Paris**
 
-👉 Version en ligne : https://grosfaignan.github.io/CV/
-📄 Version PDF : [CV_Charles_Delepelaire.pdf](CV_Charles_Delepelaire.pdf)
+👉 En ligne : https://grosfaignan.github.io/CV/ (FR) · https://grosfaignan.github.io/CV/en/ (EN)
 
-En reconversion vers le support et l'exploitation informatique, avec l'administration de systèmes Linux pour horizon. Recherche une première expérience en support et exploitation informatique, ou en administration Linux junior.
+## Source unique : `cv.yaml`
 
-- **Systèmes** : Debian, Ubuntu, Fedora, Windows
-- **Automatisation** : Bash, Git, GitHub Actions
-- **Virtualisation** : Docker, KVM
-- **Supervision** : Grafana, Prometheus, Loki
-- **Formation en cours** : CNAM – réseau, sécurité informatique et mathématiques
+Tout le contenu du CV (français et anglais) est dans **un seul fichier, `cv.yaml`**.
+Tout le reste est généré à partir de lui : ne modifiez pas les fichiers générés à la main.
 
-## Fichiers téléchargeables
+| Généré | Fichier(s) |
+|---|---|
+| Pages web | `index.html`, `en/index.html` (gabarit `templates/page.html.j2`, frise calculée depuis les dates) |
+| PDF mis en page | `CV_Charles_Delepelaire.pdf`, `en/Resume_Charles_Delepelaire_EN.pdf` |
+| Pochettes de téléchargement | `downloads/<langue>/` : PDF ATS, Word, Markdown, vCard, `resume.json` (JSON Resume) |
 
-Source unique : `data/resume.fr.json` et `data/resume.en.json` (format [JSON Resume](https://jsonresume.org/schema)).
-Après toute modification, régénérer les fichiers de `downloads/` :
+Écriture dans `cv.yaml` : un texte identique dans les deux langues s'écrit tel quel, sinon
+`{fr: "…", en: "…"}`. Dates `AAAA` ou `AAAA-MM` ; pas de date de fin = « aujourd'hui ».
+Niveaux de compétence : `p` pratique, `i` initiation, `n` notions.
+
+## Mise à jour
+
+**Automatique** : modifiez `cv.yaml` (même depuis l'interface web de GitHub) et envoyez.
+L'action « Régénérer le CV » (`.github/workflows/build-cv.yml`) reconstruit tout et l'enregistre dans la branche.
+
+**En local** :
 
 ```bash
-pip install playwright && playwright install chromium
-npm install docx
-python3 tools/build.py
+pip install -r requirements.txt && python -m playwright install chromium
+npm install
+python3 tools/build.py              # tout
+python3 tools/build.py --pages-only # pages web seulement (rapide)
 ```
 
-Formats produits pour chaque langue : PDF compatible ATS, fiche contact vCard, Word, Markdown, JSON Resume.
-La page web (`index.html`, `en/index.html`) reste à mettre à jour à la main.
+Après une modification de `style.css` ou `pile.js`, incrémentez `site.asset_version` dans `cv.yaml`
+pour que les navigateurs rechargent les fichiers.
+
+## Organisation
+
+- `cv.yaml` : contenu (source unique)
+- `templates/page.html.j2` : structure HTML des pages
+- `style.css`, `pile.js`, `fonts/` : apparence et animation de la pile de pochettes
+- `tools/cvdata.py` : lecture de `cv.yaml`, pages web, JSON Resume
+- `tools/build.py` : génération complète (PDF, PDF ATS, Markdown, vCard) ; `tools/docx.js` : Word

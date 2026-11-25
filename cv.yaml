@@ -1,0 +1,302 @@
+# ============================================================================
+#  CV de Charles Delepelaire : SOURCE UNIQUE DE VÉRITÉ
+#  Tout le reste est généré à partir de ce fichier par `python3 tools/build.py`
+#  (pages web FR/EN, PDF, PDF ATS, Word, Markdown, vCard, JSON Resume).
+#
+#  Règle d'écriture : un texte identique dans les deux langues s'écrit tel quel ;
+#  un texte qui change selon la langue s'écrit {fr: "…", en: "…"}.
+#  Dates : "AAAA" ou "AAAA-MM". Pas de date de fin = « aujourd'hui ».
+#  Niveaux de compétence : p = pratique, i = initiation, n = notions.
+# ============================================================================
+
+site:
+  url: https://grosfaignan.github.io/CV/
+  umami_id: 7c649c47-99aa-4138-8509-ab080a8260cc
+  umami_domain: grosfaignan.github.io
+  asset_version: {css: 10, js: 6}          # à incrémenter pour forcer le rechargement du cache
+
+person:
+  first_name: Charles
+  last_name: Delepelaire
+  email: charles-web@hotmail.fr
+  phone: {display_fr: "07 59 69 49 74", display_intl: "+33 7 59 69 49 74", tel: "+33759694974"}
+  github: grosfaignan
+  city: Paris
+  region: Île-de-France
+  country_code: FR
+  location_label: {fr: "Paris - RP", en: "Paris area, France"}
+
+label: {fr: "Technicien support et exploitation informatique junior", en: "Junior IT Support & Operations Technician"}
+role_lines:
+  - {fr: "Linux et Windows", en: "Linux and Windows"}
+  - {fr: "Automatisation", en: "Automation"}
+
+seo:
+  title: {fr: "Charles Delepelaire – Technicien support et exploitation informatique junior – Paris", en: "Charles Delepelaire – Junior IT Support & Operations Technician – Paris"}
+  description: {fr: "CV de Charles Delepelaire, technicien support et exploitation informatique junior à Paris : Linux, Windows, automatisation (Bash, GitHub Actions), Docker, KVM.", en: "Resume of Charles Delepelaire, junior IT support and operations technician in Paris, France: Linux, Windows, automation (Bash, GitHub Actions), Docker, KVM."}
+  og_title: {fr: "Charles Delepelaire – Technicien support et exploitation informatique junior", en: "Charles Delepelaire – Junior IT Support & Operations Technician"}
+  og_description: {fr: "CV en ligne : support et exploitation informatique, Linux et Windows, automatisation. Paris.", en: "Online resume: IT support and operations, Linux and Windows, automation. Paris, France."}
+  og_image: {fr: og.png, en: og-en.png}
+  og_image_alt: {fr: "Charles Delepelaire, technicien support et exploitation informatique junior", en: "Charles Delepelaire, junior IT support and operations technician"}
+  # Compétences déclarées aux moteurs de recherche (JSON-LD « knowsAbout »)
+  knows_about: [Linux, Debian, Ubuntu, Fedora, Windows, Windows Server, Bash, Git, GitHub, GitHub Actions, HTML, CSS, Markdown, AsciiDoc,
+    Microsoft Word, Microsoft PowerPoint, Microsoft Excel, SQL, Supabase, Neon, Render, Vercel, Fly.io,
+    {fr: Veille technologique et concurrentielle, en: Technology and competitive intelligence},
+    {fr: Analyse documentaire, en: Document analysis},
+    {fr: Prospection et négociation B2B, en: B2B prospecting and negotiation},
+    ClickUp, Claude, ChatGPT, Copilot, MCP (Model Context Protocol), Semantic Kernel, Microsoft Agent Framework, LangGraph, n8n, Make, Zapier,
+    Docker, KVM, Grafana, Ansible, Terraform, Prometheus, "C#", Node.js, React, JavaScript, PHP, Symfony, Fusion 360]
+
+profile:
+  lede: {fr: "En reconversion vers le support et l’exploitation informatique, avec l’administration de systèmes Linux pour horizon.", en: "Moving into IT support and operations, with Linux system administration as my long-term goal."}
+  cards:
+    - tag: {fr: Actuellement, en: Currently}
+      text: {fr: "Progression sur Qubes OS, Fedora secureblue, Terraform / OpenTofu, Grafana, Prometheus, Loki et la recherche agentique (Hermes, LangGraph). Reprise d’études au CNAM en réseau, sécurité informatique et mathématiques.", en: "Building skills in Qubes OS, Fedora secureblue, Terraform / OpenTofu, Grafana, Prometheus, Loki and agentic research (Hermes, LangGraph). Back in education at CNAM (French national school for continuing education) in networking, IT security and mathematics."}
+    - tag: {fr: Pratique, en: Hands-on}
+      text: {fr: "Configuration, automatisation et maintenance autodidactes de systèmes Linux et Windows. Workflows GitHub Actions de CI/CD. Interfaçage d’applications et de microservices par virtualisation (KVM, Docker). Manpages et assistance IA.", en: "Self-taught configuration, automation and maintenance of Linux and Windows systems. GitHub Actions CI/CD workflows. Connecting applications and microservices through virtualisation (KVM, Docker). Man pages and AI assistance."}
+    - tag: {fr: Parcours, en: Background}
+      text: {fr: "Plusieurs années d’expérience commerciale (prospection, négociation, gestion de portefeuille B2B), complétées par une pratique de l’analyse documentaire et de la veille technologique et concurrentielle.", en: "Several years of sales experience (prospecting, negotiation, B2B account management), along with practice in document analysis and technology and competitive intelligence."}
+  goal: {fr: "Recherche une première expérience en support et exploitation informatique, ou en administration Linux junior.", en: "Looking for a first role in IT support and operations, or as a junior Linux administrator."}
+  # Résumé utilisé par le PDF ATS, le Word, le Markdown et le JSON Resume
+  summary: {fr: "En reconversion vers le support et l’exploitation informatique, avec l’administration de systèmes Linux pour horizon. Configuration, automatisation et maintenance autodidactes de systèmes Linux et Windows, workflows GitHub Actions de CI/CD, virtualisation (KVM, Docker). Plusieurs années d’expérience commerciale B2B, complétées par une pratique de l’analyse documentaire et de la veille technologique et concurrentielle. Recherche une première expérience en support et exploitation informatique, ou en administration Linux junior.", en: "Moving into IT support and operations, with Linux system administration as my long-term goal. Self-taught configuration, automation and maintenance of Linux and Windows systems, GitHub Actions CI/CD workflows, virtualisation (KVM, Docker). Several years of B2B sales experience, along with practice in document analysis and technology and competitive intelligence. Looking for a first role in IT support and operations, or as a junior Linux administrator."}
+
+skills:
+  # page: false = absent de la grille du site (affiché dans « Compétences complémentaires »)
+  - name: {fr: Systèmes d’exploitation, en: Operating systems}
+    note: {fr: "Installation, configuration, diagnostic et maintenance de routine", en: "Installation, configuration, troubleshooting and routine maintenance"}
+    items: [[Debian, p], [Ubuntu, p], [Fedora, p], [Windows 10, p], [Windows 11, p], [Proxmox, i], [Qubes OS, i], [OpenBSD, n]]
+  - name: {fr: Virtualisation et conteneurs, en: Virtualisation and containers}
+    note: {fr: "Réseaux isolés avec Docker", en: "Isolated networks with Docker"}
+    items: [[Docker, i], [KVM, i], [Hyper-V, n]]
+  - name: {fr: Réseau, en: Networking}
+    items: [[TCP/IP, n], [DNS, n], [DHCP, n], [VPN, n]]
+  - name: {fr: Automatisation, en: Automation}
+    items: [[Bash, p], [Git, p], [GitHub, p], [GitHub Actions, p], [Ansible, i], [Terraform / OpenTofu, n]]
+  - name: {fr: Supervision, en: Monitoring}
+    items: [[Grafana, n], [Prometheus, n], [Loki, n]]
+  - name: {fr: Développement, en: Development}
+    items: [["C#", p], [HTML / CSS, p], [Python, i], [JavaScript / Node.js, i], [PHP / Symfony, i],
+            [{fr: "WordPress (jusqu’en 2022)", en: "WordPress (until 2022)"}, i],
+            [{fr: "C, C++, API Win32 (bases anciennes)", en: "C, C++, Win32 API (older basics)"}, n]]
+  - name: {fr: Documentation, en: Documentation}
+    note: {fr: "Rédaction de procédures et de rapports de diagnostic", en: "Writing procedures and diagnostic reports"}
+    items: [[Markdown, p], [AsciiDoc, p], [Word, p], [PowerPoint, p], [JupyterLab, n]]
+  - name: {fr: Sécurité, en: Security}
+    small: {fr: transversale, en: cross-cutting}
+    security: true
+    items: [[Cloudflare, n], [AppArmor, n], [auditd, n], [Fail2Ban, n], [SELinux, n], [split-GPG, n], [split-SSH, n], [qrexec, n],
+            [{fr: politiques Qubes, en: Qubes policies}, n]]
+  - name: {fr: CAO et électronique, en: CAD and electronics}
+    page: false
+    items: [[Autodesk Fusion 360, p], [Autodesk Inventor, n], [SolidWorks, n], [Eagle CAD, i], [Altium Designer, i]]
+
+projects:
+  - year: "2026"
+    status: live
+    title: {fr: VPS de recherche et de veille agentique, en: VPS for agentic research and market intelligence}
+    sub: {fr: Projet personnel lié à la mission de bénévolat pour 1000 Mains et Merveilles, en: Personal project linked to my volunteer work for 1000 Mains et Merveilles}
+    points:
+      - {fr: "Technologies en cours d’évaluation&nbsp;: Hermes, LangGraph, Claude CLI, Claude API, API de modèles de langage", en: "Technologies under evaluation: Hermes, LangGraph, Claude CLI, Claude API, language model APIs"}
+      - {fr: "Architecture en cours de construction&nbsp;: conteneur Docker d’automatisation de recherche agentique pour la veille marché", en: "Architecture in progress: Docker container automating agentic research for market intelligence"}
+      - {fr: "Conteneur de serveur intranet et de mise en forme des résultats, avec microservice (PHP / Symfony)", en: "Intranet server container to format and publish results, with a microservice (PHP / Symfony)"}
+      - {fr: "Interfaçage possible avec un système d’information existant (HubSpot / CRM, stock)", en: "Possible integration with an existing information system (HubSpot / CRM, inventory)"}
+  - year: "2026"
+    status: live
+    title: {fr: Poste Linux d’administration et étude de systèmes durcis, en: Linux admin workstation and study of hardened systems}
+    sub: {fr: Projet personnel, en: Personal project}
+    points:
+      - {fr: "Comparaison de plusieurs systèmes pour un poste d’administration (Debian durci, Ubuntu Pro, Proxmox, secureblue, Qubes OS)&nbsp;; Qubes OS et Fedora secureblue sont les deux derniers en cours d’évaluation", en: "Comparing several systems for an admin workstation (hardened Debian, Ubuntu Pro, Proxmox, secureblue, Qubes OS); Qubes OS and Fedora secureblue are the last two under evaluation"}
+      - {fr: "Scripting en cours&nbsp;: script Bash de collecte d’informations système et de diagnostic de configuration, avec rapports documentant l’état du système&nbsp;; objectif&nbsp;: comparer les distributions", en: "Scripting in progress: Bash script that collects system information and checks configuration, producing reports on system state; goal: comparing distributions"}
+  - year: "2025"
+    status: stop
+    title: {fr: Hyperviseur Proxmox avec passthrough GPU vers deux machines virtuelles de développement, en: Proxmox hypervisor with GPU passthrough to two development virtual machines}
+    sub: {fr: "Projet personnel, non abouti faute de temps", en: "Personal project, not completed for lack of time"}
+    points:
+      - {fr: "Objectif&nbsp;: passthrough d’un GPU (RTX 3050) vers deux machines virtuelles de développement (Windows et Fedora), avec réinitialisation à chaud du GPU après le démarrage de l’hôte et basculement à chaud d’une machine virtuelle à l’autre", en: "Goal: pass a GPU (RTX 3050) through to two development virtual machines (Windows and Fedora), with a hot GPU reset after host boot and hot switching from one virtual machine to the other"}
+      - {fr: "Blocage identifié&nbsp;: le groupe IOMMU du GPU inclut son contrôleur audio, qu’il faut retirer pour permettre une réinitialisation correcte du GPU&nbsp;; problème non résolu", en: "Blocker identified: the GPU’s IOMMU group includes its audio controller, which must be removed for the GPU to reset correctly; not yet solved"}
+      - {fr: "Piste envisagée, non démarrée&nbsp;: machine virtuelle dédiée à la distribution du GPU", en: "Possible next step, not started: a virtual machine dedicated to sharing out the GPU"}
+
+# Frise chronologique : lignes (dans l'ordre d'affichage) et bornes de l'axe
+timeline:
+  start: 2000
+  end: 2027
+  ticks: [2000, 2005, 2010, 2015, 2020, 2025]
+  rows:
+    form: {fr: Formation, en: Education}
+    commerce: {fr: Commerce et gestion, en: Sales and management}
+    tech: {fr: Métiers techniques et intérim, en: Technical trades and temp work}
+    cao: {fr: CAO / DAO, en: CAD}
+    info: {fr: "Informatique : autoformation", en: "IT: self-taught"}
+    bene: {fr: Bénévolat, en: Volunteering}
+
+# Parcours, du plus récent au plus ancien.
+#   kind : volunteer | work            row : ligne de la frise
+#   compact: true = « Parcours antérieur » (une ligne, sans détail)
+#   cv : intitulés pour le PDF ATS, le Word, le Markdown et le JSON Resume (poste / employeur / lieu)
+experience:
+  - kind: volunteer
+    row: bene
+    start: 2026-08
+    title: {fr: "Bénévole, 1000 Mains et Merveilles&nbsp;: conseil et études de marché", en: "Volunteer, 1000 Mains et Merveilles: consulting and market research"}
+    bar: {fr: "Bénévole, 1000 Mains et Merveilles : conseil et études de marché", en: "Volunteer, 1000 Mains et Merveilles: consulting and market research"}
+    sub: {fr: "Bénévolat, non salarié", en: "Volunteer, unpaid"}
+    points:
+      - {fr: "Participation à l’élaboration d’une nouvelle offre destinée au marché B2B&nbsp;: collecte de données (mission principale), quelques analyses et documents de communication", en: "Helping build a new B2B offering: data collection (main task), some analysis and communication materials"}
+    cv: {org: 1000 Mains et Merveilles, position: {fr: "Bénévole : conseil et études de marché", en: "Volunteer: consulting and market research"}}
+  - kind: volunteer
+    row: bene
+    start: 2026-07
+    title: {fr: "Bénévole, Emmaüs Connect", en: "Volunteer, Emmaüs Connect (digital inclusion charity)"}
+    bar: {fr: "Bénévole, Emmaüs Connect", en: "Volunteer, Emmaüs Connect"}
+    sub: {fr: "Bénévolat, non salarié", en: "Volunteer, unpaid"}
+    points:
+      - {fr: Vente de matériel informatique aux bénéficiaires, en: Selling IT equipment to beneficiaries}
+      - {fr: Accompagnement des bénéficiaires dans l’accès aux équipements informatiques, en: Helping beneficiaries get access to IT equipment}
+      - {fr: Participation au reconditionnement de matériel informatique, en: Taking part in refurbishing IT equipment}
+    cv: {org: {fr: Emmaüs Connect, en: Emmaüs Connect (digital inclusion charity)}, position: {fr: Bénévole, en: Volunteer}}
+  - kind: work
+    row: info
+    start: "2018"
+    title: {fr: Autoformation en informatique et projets personnels, en: Self-taught IT and personal projects}
+    points:
+      - {fr: "Apprentissage autodidacte de la programmation, du développement web et de l’administration de systèmes Linux", en: "Self-taught programming, web development and Linux system administration"}
+    cv: {position: {fr: Autoformation en informatique, en: Self-taught IT}, org: {fr: Projets personnels, en: Personal projects}, summary: true}
+  - kind: work
+    row: cao
+    start: 2015-08
+    end: "2018"
+    title: {fr: Conception assistée par ordinateur (CAO / DAO), en: Computer-aided design (CAD)}
+    sub: {fr: "Non salarié, autodidacte", en: "Unpaid, self-taught"}
+    points:
+      - {fr: "Logiciels de CAO&nbsp;: Autodesk Fusion 360, Autodesk Inventor, SolidWorks", en: "CAD software: Autodesk Fusion 360, Autodesk Inventor, SolidWorks"}
+      - {fr: "Conception de circuits imprimés&nbsp;: Eagle CAD, Altium Designer", en: "Printed circuit board design: Eagle CAD, Altium Designer"}
+    cv: {position: {fr: Conception assistée par ordinateur (CAO / DAO), en: Computer-aided design (CAD)}, org: {fr: "Non salarié, autodidacte", en: "Unpaid, self-taught"}}
+  - kind: work
+    row: tech
+    start: 2009-02
+    end: 2015-08
+    title: {fr: "Divers&nbsp;: intérim (dont cariste)", en: "Various temporary jobs (including forklift operator)"}
+    bar: {fr: "Divers : intérim (dont cariste)", en: "Various temporary jobs (including forklift operator)"}
+    points:
+      - {fr: Missions d’intérim en logistique et manutention, en: Temporary assignments in logistics and warehousing}
+    cv: {position: {fr: Intérim (dont cariste), en: Temporary work (including forklift operator)}, org: {fr: Missions diverses, en: Various assignments}}
+  - kind: work
+    row: commerce
+    start: 2008-05
+    end: 2008-11
+    title: {fr: "Commercial entreprises, Hertz, Trappes (78)", en: "B2B sales representative, Hertz, Trappes (Paris area)"}
+    bar: {fr: "Commercial entreprises, Hertz, Trappes (78)", en: "B2B sales representative, Hertz, Trappes"}
+    points:
+      - {fr: "Portefeuille de plus de 1&nbsp;000 clients B2B pour 1 M€ de chiffre d’affaires&nbsp;: prospection, négociation de contrats, administration du portefeuille", en: "Portfolio of more than 1,000 B2B clients worth €1M in revenue: prospecting, contract negotiation, account management"}
+    cv: {position: {fr: Commercial entreprises, en: B2B sales representative}, org: Hertz, location: {fr: Trappes (78), en: Trappes (Paris area)}}
+  - kind: work
+    row: commerce
+    start: 2007-03
+    end: 2008-03
+    title: {fr: "Chargé de clientèle, Teleperformance (Aviva Direct), Guyancourt (78)", en: "Customer advisor, Teleperformance (Aviva Direct), Guyancourt (Paris area)"}
+    bar: {fr: "Chargé de clientèle, Teleperformance (Aviva Direct), Guyancourt (78)", en: "Customer advisor, Teleperformance (Aviva Direct), Guyancourt"}
+    points:
+      - {fr: "Vente téléphonique d’assurances vie et santé&nbsp;: environ 10 contrats par jour", en: "Telephone sales of life and health insurance: around 10 contracts a day"}
+      - {fr: "Renfort ponctuel d’environ 2 mois sur le plateau Canal+&nbsp;: dépannage de box à distance", en: "About 2 months as back-up on the Canal+ team: remote set-top box troubleshooting"}
+    cv: {position: {fr: Chargé de clientèle, en: Customer advisor}, org: Teleperformance (Aviva Direct), location: {fr: Guyancourt (78), en: Guyancourt (Paris area)}}
+  - kind: work
+    row: tech
+    compact: true
+    start: 2005-10
+    end: 2006-12
+    title: {fr: "Intérim, bâtiment et travaux publics (BTP)", en: "Temporary work, construction and civil engineering"}
+    cv: {position: {fr: Intérim, en: Temporary work}, org: {fr: Bâtiment et travaux publics (BTP), en: Construction and civil engineering}}
+  - kind: work
+    row: commerce
+    compact: true
+    start: 2003-02
+    end: 2005-07
+    title: {fr: "Adjoint de direction, SARL Delepelaire, Limoges (87)", en: "Assistant manager, SARL Delepelaire, Limoges"}
+    cv: {position: {fr: Adjoint de direction, en: Assistant manager}, org: SARL Delepelaire, location: {fr: Limoges (87), en: Limoges}}
+  - kind: work
+    row: tech
+    compact: true
+    start: 2000-09
+    end: 2002-09
+    title: {fr: "Serrurier-métallier, SARL Seraba, Ablis (78)", en: "Locksmith and metalworker, SARL Seraba, Ablis"}
+    cv: {position: {fr: Serrurier-métallier, en: Locksmith and metalworker}, org: SARL Seraba, location: {fr: Ablis (78), en: Ablis}}
+
+# Formation : bar = barre de la frise (absente = pas de barre propre)
+education:
+  - title: {fr: "Reprise de formation au CNAM&nbsp;: réseau, sécurité informatique et mathématiques (UTC505, MVA911)", en: "CNAM (continuing education): networking, IT security and mathematics (UTC505, MVA911)"}
+    date: {fr: "semestre en cours, 2026", en: "current semester, 2026"}
+    start: 2026-09
+    bar: {class: formnow, title: {fr: "CNAM : réseau, sécurité informatique et mathématiques", en: "CNAM: networking, IT security and mathematics"}}
+    cv: {institution: {fr: CNAM, en: "CNAM (French national school for continuing education)"}, area: {fr: "Réseau, sécurité informatique et mathématiques (UTC505, MVA911)", en: "Networking, IT security and mathematics (UTC505, MVA911)"}, type: {fr: Reprise de formation, en: Continuing education}}
+  - title: {fr: "Certificat de spécialité en marketing B2B, CNAM Paris", en: "Specialist certificate in B2B marketing, CNAM Paris"}
+    start: 2008-09
+    end: 2010-06
+    cv: {institution: CNAM Paris, area: {fr: Marketing B2B, en: B2B marketing}, type: {fr: Certificat de spécialité, en: Specialist certificate}}
+  - title: {fr: "Étude «&nbsp;veille stratégique et concurrentielle&nbsp;», CNAM Paris", en: "Course in strategic and competitive intelligence, CNAM Paris"}
+    start: 2008-09
+    end: 2009-02
+    sub: {fr: "Dont une mission pratique de conseil pour Rencontres et Communications (Paris)&nbsp;: étude concurrentielle du marché de la communication événementielle d’entreprise", en: "Including a consulting assignment for Rencontres et Communications (Paris): competitive study of the corporate event communication market"}
+    cv: {institution: CNAM Paris, area: {fr: Veille stratégique et concurrentielle, en: Strategic and competitive intelligence}, type: {fr: Étude, en: Course}}
+  - title: {fr: "Certificat de compétences en management opérationnel, CNAM Paris", en: "Certificate in operational management, CNAM Paris"}
+    start: 2007-02
+    end: 2009-06
+    bar: {class: form, title: CNAM Paris, start: 2007-02, end: 2010-06}
+    cv: {institution: CNAM Paris, area: {fr: Management opérationnel, en: Operational management}, type: {fr: Certificat de compétences, en: Certificate}}
+  - title: {fr: "BEP serrurier-métallier, CFA des Compagnons du Devoir, Paris", en: "Vocational diploma (BEP) in locksmithing and metalwork, Compagnons du Devoir apprentice school, Paris"}
+    start: 2000-09
+    end: 2002-09
+    bar: {class: form, title: {fr: BEP serrurier-métallier, en: "Vocational diploma (BEP), locksmith and metalwork"}}
+    cv: {institution: {fr: "CFA des Compagnons du Devoir, Paris", en: "Compagnons du Devoir apprentice school, Paris"}, area: {fr: Serrurier-métallier, en: Locksmithing and metalwork}, type: {fr: BEP, en: Vocational diploma (BEP)}}
+
+# « Compétences complémentaires » du pied de page
+more:
+  - term: {fr: CAO, en: CAD}
+    text: {fr: "Autodesk Fusion 360, bon à très bon niveau en conception paramétrique&nbsp;; Autodesk Inventor, SolidWorks", en: "Autodesk Fusion 360, good to very good level in parametric design; Autodesk Inventor, SolidWorks"}
+  - term: {fr: Conception électronique, en: Electronics design}
+    text: {fr: "Initiation à Eagle CAD et Altium Designer (circuits imprimés)", en: "Beginner in Eagle CAD and Altium Designer (printed circuit boards)"}
+  - term: {fr: Langues, en: Languages}
+    text: {fr: "Anglais écrit, compréhension de documents techniques", en: "French: native. English: written, reading technical documentation"}
+  - term: {fr: Centres d’intérêt, en: Interests}
+    text: {fr: "Guitare, voyages", en: "Guitar, travel"}
+
+languages:
+  - {language: {fr: Français, en: French}, fluency: {fr: Langue maternelle, en: Native}}
+  - {language: {fr: Anglais, en: English}, fluency: {fr: "Écrit, compréhension de documents techniques", en: "Written, reading technical documentation"}}
+interests: [{fr: Guitare, en: Guitar}, {fr: Voyages, en: Travel}]
+
+# Pochettes de la pile, du bas vers le haut
+downloads:
+  - {fmt: json, file: resume.json, edge: JSON RESUME, label: {fr: Télécharger le CV au format JSON Resume, en: Download the resume in JSON Resume format}}
+  - {fmt: md, file: {fr: Charles_Delepelaire_CV.md, en: Charles_Delepelaire_Resume.md}, edge: MARKDOWN · MD, label: {fr: Télécharger le CV au format Markdown, en: Download the resume in Markdown}}
+  - {fmt: docx, file: {fr: Charles_Delepelaire_CV.docx, en: Charles_Delepelaire_Resume.docx}, edge: WORD · DOCX, label: {fr: Télécharger le CV au format Word, en: Download the resume in Word format}}
+  - {fmt: vcf, file: Charles_Delepelaire.vcf, edge: CONTACT · VCF, label: {fr: Télécharger la fiche contact (vCard), en: Download the contact card (vCard)}}
+  - {fmt: ats, file: {fr: Charles_Delepelaire_CV_ATS.pdf, en: Charles_Delepelaire_Resume_ATS.pdf}, edge: {fr: CV ATS · PDF, en: ATS RESUME · PDF}, label: {fr: Télécharger le CV PDF compatible ATS, en: Download the ATS-friendly PDF resume}}
+designed_pdf: {fr: CV_Charles_Delepelaire.pdf, en: Resume_Charles_Delepelaire_EN.pdf}
+
+# Libellés de l'interface
+ui:
+  contact_aria: {fr: Coordonnées, en: Contact details}
+  download_pdf: {fr: Télécharger en PDF, en: Download PDF}
+  profile: {fr: Profil, en: Profile}
+  skills: {fr: Compétences techniques, en: Technical skills}
+  legend_aria: {fr: Légende des niveaux, en: Skill level key}
+  levels: {p: {fr: Pratique, en: Hands-on}, i: {fr: Initiation, en: Beginner}, n: {fr: Notions, en: Basic knowledge}}
+  levels_sr: {p: {fr: pratique, en: hands-on}, i: {fr: initiation, en: beginner}, n: {fr: notions, en: basic knowledge}}
+  projects: {fr: Projets informatiques personnels, en: Personal IT projects}
+  status: {live: {fr: En cours, en: Ongoing}, stop: {fr: Interrompu, en: On hold}}
+  experience: {fr: Expérience, en: Experience}
+  timeline_aria: {fr: "Frise chronologique de 2000 à aujourd'hui : formation, commerce et gestion, métiers techniques et intérim, conception assistée par ordinateur de 2015 à 2018, informatique en autoformation depuis 2018, bénévolat depuis 2026", en: "Timeline from 2000 to today: education, sales and management, technical trades and temporary work, computer-aided design from 2015 to 2018, self-taught IT since 2018, volunteering since 2026"}
+  today: {fr: aujourd’hui, en: today}
+  present: {fr: aujourd’hui, en: present}
+  earlier: {fr: Parcours antérieur, en: Earlier career}
+  education: {fr: Formation, en: Education}
+  more: {fr: Compétences complémentaires, en: Additional skills}
+  privacy: {fr: Confidentialité, en: Privacy}
+  privacy_text: {fr: "Mesure d’audience anonyme (Umami)&nbsp;: sans cookie, sans donnée personnelle, uniquement pour savoir combien de personnes consultent ce CV.", en: "Anonymous visitor statistics (Umami): no cookies, no personal data, only to see how many people view this resume."}
+  optout: {fr: Ne pas être compté, en: Don’t count me}
+  optout_ok: {fr: Ce navigateur ne sera plus compté., en: This browser will no longer be counted.}
+  dock_aria: {fr: Contact rapide, en: Quick contact}
+  call: {fr: Appeler, en: Call}
+  write: {fr: Écrire, en: Email}
+  downloads_aria: {fr: Téléchargements, en: Downloads}
+  lang_switch: {fr: "Langue : français. Passer en anglais", en: "Language: English. Switch to French"}

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* CV au format Word, mis en page aux couleurs du site, à partir de data/resume.<lang>.json.
+/* CV au format Word, mis en page aux couleurs du site, à partir de downloads/<lang>/resume.json (issu de cv.yaml).
    Usage : node tools/docx.js <fr|en> <sortie.docx>      Dépendance : npm i docx */
 const fs = require('fs');
 const path = require('path');
@@ -9,7 +9,8 @@ const {
 } = require('docx');
 
 const [lang, out] = process.argv.slice(2);
-const r = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', `resume.${lang}.json`), 'utf8'));
+// Lit le JSON Resume généré à partir de cv.yaml par tools/build.py
+const r = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'downloads', lang, 'resume.json'), 'utf8'));
 const b = r.basics;
 
 const C = { tdeep: '00788A', tlight: 'D0F1F8', purple: '84488C', deep: '5A2A62', sun: 'FFC83D', turq: '0091A6', ink: '52565F', muted: '7A7E8B', band: 'F3E9F4', lav: 'E9D7ED', paper: 'F9F6FB', white: 'FFFFFF' };

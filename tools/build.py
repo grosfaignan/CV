@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Génère les fichiers téléchargeables du CV à partir de data/resume.{fr,en}.json.
+"""Génère tout le CV à partir de cv.yaml (source unique) : pages web FR/EN, PDF mis en page,
+PDF ATS, Word, Markdown, vCard et JSON Resume.
 
 Sorties (downloads/<langue>/) : PDF compatible ATS, fiche contact vCard,
 Word (.docx), Markdown (.md) et JSON Resume (resume.json).
@@ -221,13 +222,37 @@ def build_pdf(html_str, path, browser):
     page.close(); tmp.unlink()
 
 
+def build_designed_pdf(page_path, out, browser):
+    page = browser.new_page()
+    page.goto(page_path.as_uri()); page.wait_for_timeout(600)
+    page.pdf(path=str(out), prefer_css_page_size=True, print_background=True, tagged=True, outline=True)
+    page.close()
+
+
 def main():
+    import argparse
+    import datetime as dt
     from playwright.sync_api import sync_playwright
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import cvdata as cvsite
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--today", help="date de référence de la frise (AAAA-MM-JJ), par défaut aujourd'hui")
+    ap.add_argument("--pages-only", action="store_true", help="ne régénérer que les pages web")
+    a = ap.parse_args()
+    today = dt.date.fromisoformat(a.today) if a.today else dt.date.today()
+    cv = cvsite.load()
+    pages = {"fr": ROOT / "index.html", "en": ROOT / "en" / "index.html"}
+    for lang, path in pages.items():
+        path.parent.mkdir(exist_ok=True)
+        path.write_text(cvsite.page(cv, lang, today), encoding="utf-8")
+        print(lang, "→", path.relative_to(ROOT))
+    if a.pages_only:
+        return
     chrome = shutil.which("google-chrome") or shutil.which("chromium") or None
     with sync_playwright() as p:
         browser = p.chromium.launch(executable_path=chrome, args=["--no-sandbox"]) if chrome else p.chromium.launch()
         for lang, t in T.items():
-            r = json.loads((ROOT / "data" / f"resume.{lang}.json").read_text(encoding="utf-8"))
+            r = cvsite.resume(cv, lang)
             d = OUT / lang; d.mkdir(parents=True, exist_ok=True)
             f = t["files"]
             (d / f["json"]).write_text(json.dumps(r, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -235,7 +260,9 @@ def main():
             (d / f["vcf"]).write_text(build_vcf(r, t), encoding="utf-8", newline="")
             subprocess.run(["node", str(ROOT / "tools" / "docx.js"), lang, str(d / f["docx"])], check=True, cwd=ROOT)
             build_pdf(build_ats_html(r, t), d / f["pdf"], browser)
-            print(lang, "→", ", ".join(sorted(x.name for x in d.iterdir())))
+            designed = ROOT / ("" if lang == "fr" else "en") / cv["designed_pdf"][lang]
+            build_designed_pdf(pages[lang], designed, browser)
+            print(lang, "→", ", ".join(sorted(x.name for x in d.iterdir())), "+", designed.relative_to(ROOT))
         browser.close()
 
 

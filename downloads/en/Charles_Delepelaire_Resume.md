@@ -10,15 +10,15 @@ Moving into IT support and operations, with Linux system administration as my lo
 
 ## Skills
 
-- **Operating systems**: Debian (hands-on), Ubuntu (hands-on), Fedora (hands-on), Windows 10 (hands-on), Windows 11 (hands-on), Proxmox (beginner), Qubes OS (beginner), OpenBSD (basic)
-- **Virtualisation and containers**: Docker (beginner), KVM (beginner), Hyper-V (basic)
-- **Networking**: TCP/IP (basic), DNS (basic), DHCP (basic), VPN (basic)
-- **Automation**: Bash (hands-on), Git (hands-on), GitHub (hands-on), GitHub Actions (hands-on), Ansible (beginner), Terraform / OpenTofu (basic)
-- **Monitoring**: Grafana (basic), Prometheus (basic), Loki (basic)
-- **Development**: C# (hands-on), HTML / CSS (hands-on), Python (beginner), JavaScript / Node.js (beginner), PHP / Symfony (beginner), WordPress, until 2022 (beginner), C, C++, Win32 API, older basics (basic)
-- **Documentation**: Markdown (hands-on), AsciiDoc (hands-on), Word (hands-on), PowerPoint (hands-on), JupyterLab (basic)
-- **Security**: Cloudflare, AppArmor, auditd, Fail2Ban, SELinux, split-GPG, split-SSH, qrexec, Qubes policies (basic)
-- **CAD and electronics**: Autodesk Fusion 360 (good to very good), Autodesk Inventor, SolidWorks, Eagle CAD (beginner), Altium Designer (beginner)
+- **Operating systems**: Debian (hands-on), Ubuntu (hands-on), Fedora (hands-on), Windows 10 (hands-on), Windows 11 (hands-on), Proxmox (beginner), Qubes OS (beginner), OpenBSD (basic knowledge)
+- **Virtualisation and containers**: Docker (beginner), KVM (beginner), Hyper-V (basic knowledge)
+- **Networking**: TCP/IP (basic knowledge), DNS (basic knowledge), DHCP (basic knowledge), VPN (basic knowledge)
+- **Automation**: Bash (hands-on), Git (hands-on), GitHub (hands-on), GitHub Actions (hands-on), Ansible (beginner), Terraform / OpenTofu (basic knowledge)
+- **Monitoring**: Grafana (basic knowledge), Prometheus (basic knowledge), Loki (basic knowledge)
+- **Development**: C# (hands-on), HTML / CSS (hands-on), Python (beginner), JavaScript / Node.js (beginner), PHP / Symfony (beginner), WordPress (until 2022) (beginner), C, C++, Win32 API (older basics) (basic knowledge)
+- **Documentation**: Markdown (hands-on), AsciiDoc (hands-on), Word (hands-on), PowerPoint (hands-on), JupyterLab (basic knowledge)
+- **Security**: Cloudflare (basic knowledge), AppArmor (basic knowledge), auditd (basic knowledge), Fail2Ban (basic knowledge), SELinux (basic knowledge), split-GPG (basic knowledge), split-SSH (basic knowledge), qrexec (basic knowledge), Qubes policies (basic knowledge)
+- **CAD and electronics**: Autodesk Fusion 360 (hands-on), Autodesk Inventor (basic knowledge), SolidWorks (basic knowledge), Eagle CAD (beginner), Altium Designer (beginner)
 
 ## Work experience
 
@@ -97,14 +97,14 @@ Personal project (ongoing).
 
 Personal project, not completed for lack of time (on hold).
 
-- Goal: pass a GPU (RTX 3050) through to two development virtual machines (Windows and Fedora), with a hot GPU reset and hot switching from one virtual machine to the other
+- Goal: pass a GPU (RTX 3050) through to two development virtual machines (Windows and Fedora), with a hot GPU reset after host boot and hot switching from one virtual machine to the other
 - Blocker identified: the GPU’s IOMMU group includes its audio controller, which must be removed for the GPU to reset correctly; not yet solved
 - Possible next step, not started: a virtual machine dedicated to sharing out the GPU
 
 ## Education
 
 ### Continuing education – Networking, IT security and mathematics (UTC505, MVA911), CNAM (French national school for continuing education)
-*2026 – present*
+*Sep 2026 – present*
 
 ### Specialist certificate – B2B marketing, CNAM Paris
 *Sep 2008 – Jun 2010*

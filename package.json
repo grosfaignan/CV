@@ -1,0 +1,6 @@
+{
+  "name": "cv-charles-delepelaire",
+  "private": true,
+  "description": "Génération du CV Word (tools/docx.js) à partir de cv.yaml",
+  "dependencies": { "docx": "^9.8.1" }
+}
