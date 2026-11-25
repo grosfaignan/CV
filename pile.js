@@ -9,7 +9,8 @@
   var canHover = matchMedia('(hover: hover)').matches;
   var OUT = 2.3;            // distance de sortie (unités « monde », 1 = demi-côté)
   var TURN = Math.PI / 4;   // virage à plat : 45° pour faire face à l'écran
-  var DUR = 850;            // ms pour un aller complet
+  var DUR = 1300;           // ms pour un aller complet
+  var INTENT = 140;         // ms de survol avant de déclencher (évite les déclenchements en passant)
   var H = 16;               // épaisseur d'une pochette (px SVG)
   var VIEW = [1, -1];       // direction de vue dans le plan (faces visibles)
 
@@ -75,8 +76,9 @@
   cds.forEach(function (c) {
     render(c);
     if (canHover) {
-      c.g.addEventListener('mouseenter', function () { go(c, 1); });
-      c.g.addEventListener('mouseleave', function () { go(c, 0); });
+      // Seule la zone de repos (polygone .hit) réagit : la pochette qui bouge ne
+      // vole pas le survol aux autres, donc pas de réaction en chaîne.
+      c.g.addEventListener('mouseenter', function () { arm(c); });
     } else {
       c.g.addEventListener('click', function (e) {
         e.stopPropagation();
@@ -85,6 +87,19 @@
         if (!open) go(c, 1);
       });
     }
+  });
+  var timer = 0, active = null;
+  function arm(c) {
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      if (active === c) return;
+      cds.forEach(function (o) { if (o !== c && o.target) go(o, 0); });
+      active = c; go(c, 1);
+    }, INTENT);
+  }
+  if (canHover) svg.addEventListener('mouseleave', function () {
+    clearTimeout(timer);
+    timer = setTimeout(function () { active = null; cds.forEach(function (o) { if (o.target) go(o, 0); }); }, 250);
   });
   if (!canHover) document.addEventListener('click', function () { cds.forEach(function (o) { if (o.target) go(o, 0); }); });
 })();
