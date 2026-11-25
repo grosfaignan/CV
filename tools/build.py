@@ -8,7 +8,7 @@ Dépendances : playwright (+ un Chrome/Chromium), Node.js avec le paquet npm « 
     pip install playwright && playwright install chromium && npm install docx
 Usage : python3 tools/build.py            (depuis la racine du dépôt)
 """
-import html, json, os, shutil, subprocess, sys
+import html, json, os, re, shutil, subprocess, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -126,40 +126,90 @@ def build_vcf(r, t):
 
 
 # ---------- PDF compatible ATS (une colonne, texte réel) ----------
+LEVELS = {"pratique": "p", "hands-on": "p", "bon": "p", "good": "p", "initiation": "i", "beginner": "i"}
+
+
 def build_ats_html(r, t):
+    """PDF compatible ATS, mis en page aux couleurs du site : une seule colonne, texte réel,
+    ordre de lecture = ordre du document, aucun texte dans une image ni tableau."""
     b = r["basics"]
     e = html.escape
+    fr = r["meta"]["language"] == "fr"
     font = (ROOT / "fonts").as_uri()
+    css = (
+        f"@font-face{{font-family:IS;font-weight:400;src:url({font}/InstrumentSans-400.woff2)}}"
+        f"@font-face{{font-family:IS;font-weight:600;src:url({font}/InstrumentSans-600.woff2)}}"
+        f"@font-face{{font-family:IS;font-weight:400;font-style:italic;src:url({font}/InstrumentSans-400-italic.woff2)}}"
+        f"@font-face{{font-family:MR;font-weight:700;src:url({font}/Manrope-700.woff2)}}"
+        f"@font-face{{font-family:UB;font-weight:600;src:url({font}/Unbounded-600.woff2)}}"
+        "@page{size:A4;margin:11mm 14mm 11mm}"
+        "*{box-sizing:border-box}body{margin:0;font:10pt/1.4 IS,Arial,sans-serif;color:#52565F}"
+        "p,li{text-align:justify;hyphens:manual;margin:0}"
+        ".hero{background:#84488C;color:#fff;border-radius:10px;padding:14px 22px 12px;margin-bottom:10px}"
+        "h1{font:700 24pt/1.05 MR,Arial,sans-serif;margin:0 0 8px;letter-spacing:.005em}"
+        ".label{display:inline-block;background:#FFC83D;color:#52565F;font:600 11pt/1.3 UB,Arial,sans-serif;padding:4px 10px;margin:0 0 9px;letter-spacing:-.01em}"
+        ".contact{font-size:9pt;color:#fff;text-align:left}.contact a{color:#FFC83D;text-decoration:none;font-weight:600}"
+        ".lede{border-left:5px solid #0091A6;background:#F3E9F4;padding:8px 12px;border-radius:0 8px 8px 0}"
+        "h2{font:600 12pt/1.2 UB,Arial,sans-serif;color:#84488C;border-bottom:2.5px solid #FFC83D;margin:10px 0 6px;padding-bottom:2px;break-after:avoid;letter-spacing:-.01em}"
+        ".legend{font-size:8.5pt;margin:0 0 5px}"
+        ".sk{margin:0 0 3px;line-height:1.7;text-align:left}.sk b{color:#5A2A62;margin-right:4px}"
+        ".pill{display:inline;padding:1px 5px;border-radius:4px;font-size:8.8pt;white-space:nowrap}"
+        ".pill.p{background:#84488C;color:#fff;font-weight:600}.pill.i{background:#E9D7ED;color:#84488C;font-weight:600}.pill.n{color:#7A7E8B;font-style:italic}"
+        ".pill small{font-size:7.5pt;font-weight:400;opacity:.85}"
+        ".item{border-left:3.5px solid var(--a);padding:1px 0 1px 10px;margin:0 0 6px;break-inside:avoid}"
+        ".head{display:flex;justify-content:space-between;gap:12px;align-items:baseline}"
+        "h3{font:600 10.2pt/1.3 IS,Arial,sans-serif;color:#5A2A62;margin:0}"
+        ".date{font-weight:600;color:#84488C;font-size:8.8pt;white-space:nowrap;margin:0}"
+        ".sub{font-style:italic;color:#7A7E8B;font-size:9pt;margin:1px 0 2px;text-align:left}"
+        "ul{margin:2px 0 0 15px;padding:0}li{margin:1px 0}li::marker{color:#0091A6}"
+        ".short{margin:0 0 3px;text-align:left}.short b{color:#84488C}"
+    )
+    acc = {2: "#84488C", 3: "#E07A5F", 4: "#0091A6", 5: "#FFC83D"}
+    contact = contact_line(b)
     H = [f'<!doctype html><html lang="{r["meta"]["language"]}"><head><meta charset="utf-8">',
-         f'<title>{e(b["name"])} – {e(b["label"])}</title><style>',
-         f"@font-face{{font-family:IS;font-weight:400;src:url({font}/InstrumentSans-400.woff2)}}",
-         f"@font-face{{font-family:IS;font-weight:600;src:url({font}/InstrumentSans-600.woff2)}}",
-         f"@font-face{{font-family:IS;font-weight:400;font-style:italic;src:url({font}/InstrumentSans-400-italic.woff2)}}",
-         "@page{size:A4;margin:16mm 18mm}body{font:10pt/1.45 IS,Arial,sans-serif;color:#222}",
-         "h1{font-size:20pt;margin:0}p,li{text-align:left;hyphens:manual}.label{font-weight:600;font-size:11.5pt;margin:2px 0 4px}",
-         ".contact{margin:0 0 6px;color:#444}h2{font-size:12pt;text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid #999;margin:14px 0 6px;padding-bottom:2px;break-after:avoid}",
-         "h3{font-size:10.5pt;margin:8px 0 0;break-after:avoid}.date{font-style:italic;color:#555;margin:0}ul{margin:3px 0 0 16px;padding:0}li{margin:1px 0}",
-         ".item{break-inside:avoid}p{margin:3px 0}</style></head><body>",
-         f'<h1>{e(b["name"])}</h1><p class="label">{e(b["label"])}</p><p class="contact">{" | ".join(e(x) for x in contact_line(b))}</p>']
-    for title, items in sections(r, t):
-        H.append(f"<h2>{e(title)}</h2>")
-        inline = [it for it in items if it.get("inline")]
-        if inline:
-            H.append("<ul>" + "".join(f'<li><b>{e(it["text"])}</b>{e(it["after"])}</li>' for it in inline) + "</ul>")
+         f'<title>{e(b["name"])} – {e(b["label"])}</title><style>{css}</style></head><body>',
+         '<header class="hero">', f'<h1>{e(b["name"])}</h1>', f'<p class="label">{e(b["label"])}</p>',
+         '<p class="contact">' + " · ".join(e(x) for x in contact[:3]) +
+         f' · <a href="{e(b["url"])}">{e(b["url"].replace("https://", ""))}</a> · {e(contact[4])}</p>', "</header>"]
+    for n, (title, items) in enumerate(sections(r, t)):
+        if n == 6:   # langues et centres d'intérêt sous un seul titre
+            title = f'{title} {"et" if fr else "and"} {t["interests"][0].lower() + t["interests"][1:]}'
+        if n != 7:
+            H.append(f"<h2>{e(title)}</h2>")
+        if n == 7:
+            H.append(f'<p class="short"><b>{e(t["interests"])}</b>{" : " if fr else ": "}{e(items[0]["text"])}</p>')
+            continue
+        if n == 0:
+            H.append(f'<p class="lede">{e(items[0]["text"])}</p>')
+            continue
+        if n == 1:
+            lv = ("Pratique", "Initiation", "Notions") if fr else ("Hands-on", "Beginner", "Basic knowledge")
+            H.append('<p class="legend">' + " ".join(f'<span class="pill {c}">{e(x)}</span>' for c, x in zip("pin", lv)) + "</p>")
+            for s in r["skills"]:
+                pills = []
+                for k in s["keywords"]:
+                    m = re.match(r"^(.*?)\s*\(([^)]*)\)\s*$", k)
+                    name, lvl = (m.group(1), m.group(2)) if m else (k, "")
+                    c = next((v for key, v in LEVELS.items() if lvl.lower().startswith(key)), "n")
+                    pills.append(f'<span class="pill {c}">{e(name)}' + (f' <small>({e(lvl)})</small>' if lvl else "") + "</span>")
+                H.append(f'<p class="sk"><b>{e(s["name"])}</b> ' + " ".join(pills) + "</p>")
+            continue
+        if n >= 6:
+            for it in items:
+                k, _, v = it["text"].partition(" : " if fr else ": ")
+                H.append(f'<p class="short"><b>{e(k)}</b>{" : " if fr else ": "}{e(v)}</p>' if v else f'<p class="short">{e(k)}</p>')
             continue
         for it in items:
-            if "text" in it:
-                H.append(f'<p>{e(it["text"])}</p>')
-                continue
-            H.append(f'<div class="item"><h3>{e(it["title"])}</h3><p class="date">{e(it["date"])}</p>')
+            H.append(f'<div class="item" style="--a:{acc.get(n, "#84488C")}"><div class="head"><h3>{e(it["title"])}</h3>'
+                     f'<p class="date">{e(it["date"])}</p></div>')
             if it.get("summary"):
-                H.append(f'<p>{e(it["summary"])}</p>')
+                H.append(f'<p class="sub">{e(it["summary"])}</p>')
             if it.get("bullets"):
                 H.append("<ul>" + "".join(f"<li>{e(x)}</li>" for x in it["bullets"]) + "</ul>")
             H.append("</div>")
     H.append("</body></html>")
-    # Apostrophes droites : certains logiciels de tri lisent mal l’apostrophe typographique
-    return "".join(H).replace("\u2019", "'")
+    # Apostrophes droites : certains logiciels de tri lisent mal l'apostrophe typographique
+    return "".join(H).replace("’", "'")
 
 
 def build_pdf(html_str, path, browser):
@@ -167,7 +217,7 @@ def build_pdf(html_str, path, browser):
     tmp.write_text(html_str, encoding="utf-8")
     page = browser.new_page()
     page.goto(tmp.as_uri()); page.wait_for_timeout(300)
-    page.pdf(path=str(path), format="A4", prefer_css_page_size=True, print_background=False, tagged=True, outline=True)
+    page.pdf(path=str(path), format="A4", prefer_css_page_size=True, print_background=True, tagged=True, outline=True)
     page.close(); tmp.unlink()
 
 
