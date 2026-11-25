@@ -85,13 +85,14 @@ const goalBox = table([new TableRow({ children: [cell([para(run(goal, { size: 23
 // ---------- compétences ----------
 const level = (k) => { const m = k.match(/\(([^)]*)\)\s*$/); const lv = m ? m[1].toLowerCase() : '';
   let i = L.keys.findIndex((x) => lv.startsWith(x)); if (i < 0 && /^(bon|good)/.test(lv)) i = 0; return { name: m ? k.slice(0, m.index).trim() : k, i: i < 0 ? 2 : i }; };
-const pill = (name, i) => i === 0 ? run(` ${name} `, { size: 19, bold: true, color: C.white, bg: C.purple })
-  : i === 1 ? run(` ${name} `, { size: 19, bold: true, color: C.purple, bg: C.lav })
+// Pastilles sur fond turquoise pour contraster avec le fond lavande du volet de droite
+const pill = (name, i) => i === 0 ? run(` ${name} `, { size: 19, bold: true, color: C.white, bg: C.turq })
+  : i === 1 ? run(` ${name} `, { size: 19, bold: true, color: C.tdeep, bg: C.tlight })
   : run(` ${name} `, { size: 19, italics: true, color: C.muted });
 const legend = para(L.lvl.map((t, i) => [pill(t, i), run('   ')]).flat(), { align: AlignmentType.LEFT, after: 120 });
 const kw = 2600;
 const skillRows = r.skills.map((s) => new TableRow({ cantSplit: true, children: [
-  cell([para(run(s.name, { size: 19, bold: true, color: C.tdeep }), { align: AlignmentType.LEFT, after: 0 })], kw, { fill: C.tlight, v: VerticalAlign.CENTER }),
+  cell([para(run(s.name, { size: 19, bold: true, color: C.purple }), { align: AlignmentType.LEFT, after: 0 })], kw, { fill: C.tlight, v: VerticalAlign.CENTER }),
   cell([para(s.keywords.map(level).map((x, j) => [j ? run('  ') : null, pill(x.name, x.i)]).flat().filter(Boolean), { align: AlignmentType.LEFT, after: 0, line: 320 })],
     W - kw, { fill: C.band, v: VerticalAlign.CENTER }),
 ] }));
