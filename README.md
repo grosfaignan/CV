@@ -19,7 +19,8 @@ Source unique : `data/resume.fr.json` et `data/resume.en.json` (format [JSON Res
 Après toute modification, régénérer les fichiers de `downloads/` :
 
 ```bash
-pip install python-docx playwright && playwright install chromium
+pip install playwright && playwright install chromium
+npm install docx
 python3 tools/build.py
 ```
 

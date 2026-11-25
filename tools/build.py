@@ -4,11 +4,11 @@
 Sorties (downloads/<langue>/) : PDF compatible ATS, fiche contact vCard,
 Word (.docx), Markdown (.md) et JSON Resume (resume.json).
 
-Dépendances : python-docx, playwright (+ un Chrome/Chromium).
-    pip install python-docx playwright && playwright install chromium
+Dépendances : playwright (+ un Chrome/Chromium), Node.js avec le paquet npm « docx ».
+    pip install playwright && playwright install chromium && npm install docx
 Usage : python3 tools/build.py            (depuis la racine du dépôt)
 """
-import html, json, os, shutil, sys
+import html, json, os, shutil, subprocess, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -122,47 +122,7 @@ def build_vcf(r, t):
     return "\r\n".join(lines) + "\r\n"
 
 
-# ---------- Word ----------
-def build_docx(r, t, path):
-    from docx import Document
-    from docx.enum.text import WD_ALIGN_PARAGRAPH
-    from docx.shared import Pt, RGBColor, Cm
-    b = r["basics"]
-    doc = Document()
-    sec = doc.sections[0]
-    sec.page_height, sec.page_width = Cm(29.7), Cm(21)
-    for side in ("left_margin", "right_margin"):
-        setattr(sec, side, Cm(2))
-    sec.top_margin = sec.bottom_margin = Cm(1.8)
-    st = doc.styles["Normal"]
-    st.font.name, st.font.size = "Calibri", Pt(10.5)
-    for name, size in (("Title", 22), ("Heading 1", 13), ("Heading 2", 11)):
-        s = doc.styles[name]
-        s.font.name, s.font.size, s.font.color.rgb = "Calibri", Pt(size), RGBColor(0x5A, 0x2A, 0x62)
-    doc.core_properties.title = f'{b["name"]} – {b["label"]}'
-    doc.core_properties.author = b["name"]
-    doc.core_properties.language = r["meta"]["language"]
-    doc.add_paragraph(b["name"], style="Title")
-    p = doc.add_paragraph(); run = p.add_run(b["label"]); run.bold = True
-    doc.add_paragraph(" · ".join(contact_line(b)))
-    for title, items in sections(r, t):
-        doc.add_heading(title, level=1)
-        for it in items:
-            if it.get("inline"):
-                p = doc.add_paragraph(style="List Bullet")
-                p.add_run(it["text"]).bold = True
-                p.add_run(it["after"])
-                continue
-            if "text" in it:
-                p = doc.add_paragraph(it["text"]); p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
-                continue
-            doc.add_heading(it["title"], level=2)
-            p = doc.add_paragraph(); p.add_run(it["date"]).italic = True
-            if it.get("summary"):
-                p = doc.add_paragraph(it["summary"]); p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
-            for x in it.get("bullets", []):
-                p = doc.add_paragraph(x, style="List Bullet"); p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
-    doc.save(path)
+# ---------- Word : tools/docx.js (mise en page aux couleurs du site) ----------
 
 
 # ---------- PDF compatible ATS (une colonne, texte réel) ----------
@@ -222,7 +182,7 @@ def main():
             (d / f["json"]).write_text(json.dumps(r, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
             (d / f["md"]).write_text(build_md(r, t), encoding="utf-8")
             (d / f["vcf"]).write_text(build_vcf(r, t), encoding="utf-8", newline="")
-            build_docx(r, t, d / f["docx"])
+            subprocess.run(["node", str(ROOT / "tools" / "docx.js"), lang, str(d / f["docx"])], check=True, cwd=ROOT)
             build_pdf(build_ats_html(r, t), d / f["pdf"], browser)
             print(lang, "→", ", ".join(sorted(x.name for x in d.iterdir())))
         browser.close()
